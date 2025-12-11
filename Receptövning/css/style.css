@@ -126,7 +126,7 @@ h3
   box-shadow: var(--shadow-std);
 }
 
-/*Tanken var en generell klass för flexibilitet*/
+/*Tanken var en generell klass för flexibilitet, gick väl sådär*/
 .flex_center
 {
   display: flex;
