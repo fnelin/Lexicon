@@ -12,7 +12,9 @@
   --border-color-std: hsl(180, 20%, 45%);
   --border-std: 4px solid var(--border-color-std);
   --border-dark: 2px solid var(--border-color-dark);
-  --shadow-std: 1px 5px 5px -5px hsl(from var(--background-color-ingress) h s calc(l - 20));
+  --shadow-color: hsl(from var(--background-color-ingress) h s calc(l - 20));
+  --shadow-std: 1px 5px 5px -2px var(--shadow-color);
+  --shadow-header: 2px 2px 2px 2px var(--shadow-color);
   /* Om jag vill behöver specifika variabler per sida
   .indexpage {
   }
@@ -276,7 +278,7 @@ h3
 /*Utility klass för skuggning*/
 .shadow
 {
-  box-shadow: var(--shadow-std);
+  box-shadow: var(--shadow-header);
 }
 
 /*rund av hörnen uppe/nere med små utilityklasser*/
@@ -284,10 +286,14 @@ h3
 {
   border-top-right-radius: var(--border-radius-std);
   border-top-left-radius: var(--border-radius-std);
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .rounded_corners_bottom
 {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
   border-bottom-right-radius: var(--border-radius-std);
   border-bottom-left-radius: var(--border-radius-std);
 }

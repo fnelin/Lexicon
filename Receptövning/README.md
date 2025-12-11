@@ -7,12 +7,14 @@ v50 css
 -Header: Hittade taggar för enskilda rundade hörn
 -Header: La till sticky klass för att visa huvudmenyn även när man scrollar ned.
 -Herobanner: Backgrunden som bild i css. Fonter till texterna direct ifrån google.
+-SyleCSS:Bröt ut "alla" nestade klasser ifrån förra veckans övning.
 -Cards: Skapade grid för korten med grid_cell
 -Cards: La in selektor :has i grid_cell klassen för om man tabbar sig ned till ett kort beter det sig likadant som om man hovrar med musen över.
+-Cards: Provade att få till ellipses, tyvärr bara en rad med text då den styrs av overflow och eftersom white-space är satt till nowrap når texten aldrig rad 2 innan den flödar över.
 +Att göra: Subgrid till korten
-+Att göra: Egen klass till bildena i korten, card_img, istället för att nesta taggen i card_border.
 +Att göra: TabMeny för hela siten på undersidorna.
-+Att göra: Justera ned fonterna i ingress och korten när media query >= 640
++Att göra: Justera ned storleken på fonterna i ingress och korten när media query >= 640
+
 v49 css
 -Länkat till font hos google
 -Reset CSS kod inkopierad.
