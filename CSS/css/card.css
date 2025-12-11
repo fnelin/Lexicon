@@ -1,0 +1,58 @@
+.grid_columns
+{
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
+}
+
+.grid_cell
+{
+    transition: 0.2s;
+    background-color: hsl(0, 0%, 100%);
+    max-width: 315px;
+
+    :not(img, a)
+    {
+        padding: 0 1rem 1rem 1rem;
+    }
+
+    /*Så att både mus och tabb användare får samma repsons av att markera ett card*/
+    &:hover,
+    &:has(a:focus)
+    {
+        transform: scale(1.1);
+        box-shadow: 1px 5px 5px -5px hsl(0, 0%, 20%);
+
+        .card_title
+        {
+            text-decoration: underline;
+            text-decoration-color: hsl(0, 68%, 42%);
+            text-decoration-thickness: 4px;
+        }
+    }
+}
+
+.card_border
+{
+    border: 1px solid hsl(0, 0%, 50%);
+    border-radius: 5px;
+
+    /*Snyggar till nederkanten på bilder i cards.*/
+    img
+    {
+        width: 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+.card_title
+{
+    font-size: larger;
+}
+
+.card_text
+{
+    font-size: small;
+    line-height: 1rem;
+}

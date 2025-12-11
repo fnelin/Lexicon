@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Exercise CSS" />
+    <meta name="keywords" content="CSS, HTML" />
+    <meta name="author" content="Fredrik Nelin" />
+    <title>Dykning, Dykning, Dykning</title>
+    <link rel="icon" type="image/x-icon" href="/img/Icon.png" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/container.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/card.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+  <body class="indexpage container">
+    <header>
+      <div class="flexy rounded_corners_bottom shadow">
+        <a href="#" aria-label="Hem"><img alt="" src="./img/Icon.png" width="40" height="40" class="header_img" /></a>
+        <nav aria-label="Primary navigation">
+          <ul>
+            <li><a href="#alldives">Alla dyk</a></li>
+            <li><a href="#about">Om oss</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+          </ul>
+        </nav>
+        <a href="#" class="btn-log-in" aria-label="Inloggning" role="button">Logga in</a>
+      </div>
+    </header>
+
+    <section class="hero_banner_background flex_center" aria-labelledby="main_heading">
+      <h1 id="main_heading" class="hero_banner_h1 text-border font-dynapuff">Dykning, dykning, dykning</h1>
+      <p class="hero_banner_p text-border font-indie-flower">-sommar som vinter</p>
+    </section>
+
+    <main>
+      <section id="alldives" aria-labelledby="findseason">
+        <div class="index_h2">
+          <h2 id="findseason">Hitta din favoritsäsong</h2>
+        </div>
+        <p class="ingress">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, <em>quis</em> nostrud exercitation ullamco laboris nisi ut aliquip ex
+          ea commodo consequat.
+        </p>
+        <section id="cards">
+          <div class="grid_columns">
+
+            <div class="grid_cell card_border">
+              <a href="summer.html">
+                <img src="./img/285x275c.jpg" alt="" class="card_border" />
+                <h3 class="card_title">Sommar</h3>
+                <p class="card_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, commodi
+                  inventore?</p>
+              </a>
+            </div>
+
+            <div class="grid_cell card_border">
+              <a href="./fall.html">
+                <img src="./img/285x275a.png" alt="" class="card_border" />
+                <h3 class="card_title">Höst</h3>
+                <p class="card_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, commodi
+                  inventore?</p>
+              </a>
+            </div>
+            <div class="grid_cell card_border">
+              <a href="winter.html">
+                <img src="./img/285x275b.png" alt="" class="card_border" />
+                <h3 class="card_title">Vinter</h3>
+                <p class="card_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, commodi
+                  inventore?</p>
+              </a>
+            </div>
+            <div class="grid_cell card_border">
+              <a href="./spring.html">
+                <img src="./img/285x275d.png" alt="" class="card_border" />
+                <h3 class="card_title">Vår</h3>
+                <p class="card_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, commodi
+                  inventore?</p>
+              </a>
+            </div>
+        </section>
+      </section>
+    </main>
+
+    <footer>
+      <hr />
+      <p>&copy; 2025 Lorem ipsum dolor sit amet.</p>
+    </footer>
+  </body>
+
+</html>
