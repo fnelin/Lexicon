@@ -12,7 +12,7 @@
   --border-color-std: hsl(180, 20%, 45%);
   --border-std: 4px solid var(--border-color-std);
   --border-dark: 2px solid var(--border-color-dark);
-
+  --shadow-std: 1px 5px 5px -5px hsl(from var(--background-color-ingress) h s calc(l - 20));
   /* Om jag vill behöver specifika variabler per sida
   .indexpage {
   }
@@ -39,60 +39,12 @@
   --border-color-dark: color-mix(in hsl, var(--border-color-std) 50%, black 50%);
 }
 
+/*Sätter hela headern sticky för att kunna ligga kvar när man scrollar*/
 header
 {
   position: sticky;
   top: 0;
 }
-
-.flexy
-{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--background-color-ingress);
-  padding: calc(var(--padding-half)/2);
-
-  nav
-  {
-    flex-basis: 40%;
-
-    ul
-    {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-  }
-
-  a:hover,
-  :focus
-  {
-    text-decoration: underline;
-    text-decoration-color: hsl(0, 68%, 42%);
-    text-decoration-thickness: 4px;
-  }
-
-
-  .btn-log-in
-  {
-    padding: var(--padding-half);
-    background-color: var(--background-color-body);
-    border-radius: var(--border-radius-std);
-    transition: 0.5s transform;
-    min-width: 8ch;
-    text-align: center;
-
-    &:hover,
-    &:focus
-    {
-      transform: scale(1.1);
-      box-shadow: 1px 5px 5px -5px hsl(from var(--background-color-ingress) h s calc(l - 20));
-    }
-  }
-}
-
 
 body
 {
@@ -104,22 +56,12 @@ body
 main
 {
   width: 90%;
-  margin: 1rem 5%;
+  margin-inline: 5%;
 }
 
-:where(h1, h2, h3)
+footer
 {
-  margin-top: calc(var(--margin-std) * 0.5);
-  margin-bottom: 0;
-  text-wrap: balance;
-  overflow-wrap: break-word;
-  text-transform: uppercase;
-}
-
-/* Testar specificiteten med annan tt på h3orna */
-h3
-{
-  text-transform: capitalize;
+  margin-block: var(--margin-std);
 }
 
 figcaption,
@@ -130,6 +72,61 @@ footer p
   padding-left: var(--padding-std);
 }
 
+:where(h1, h2, h3)
+{
+  padding-block: var(--padding-half);
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  text-transform: uppercase;
+}
+
+/* Testar specificiteten för h3orna med annan tt */
+h3
+{
+  text-transform: capitalize;
+}
+
+.flexy
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-color-ingress);
+  padding: calc(var(--padding-half)/2);
+}
+
+/*Göra länkar enhetliga i både header och kort. I korten bara stryka under card_title*/
+.flexy a:hover,
+.flexy :focus,
+.grid_cell:hover .card_title,
+.grid_cell:has(a:focus) .card_title
+{
+  text-decoration: underline;
+  text-decoration-color: hsl(0, 68%, 42%);
+  text-decoration-thickness: 4px;
+}
+
+.btn_log_in
+{
+  padding: var(--padding-half);
+  background-color: var(--background-color-body);
+  border-radius: var(--border-radius-std);
+  transition: 0.5s transform;
+  min-width: 8ch;
+  text-align: center;
+}
+
+/*Knappar och kort får samma skugga och inzomningseffekt*/
+.btn_log_in:hover,
+.btn_log_in:focus,
+.grid_cell:hover,
+.grid_cell:has(a:focus)
+{
+  transform: scale(1.1);
+  box-shadow: var(--shadow-std);
+}
+
+/*Tanken var en generell klass för flexibilitet*/
 .flex_center
 {
   display: flex;
@@ -139,13 +136,13 @@ footer p
   justify-content: center;
 }
 
+/*Innan jag förstod/hittade z-index så jag la bakgrundsbilden här. Color sattes för att undvika wave varningar*/
 .hero_banner_background
 {
   background-image: url("../img/Image2.png");
   background-color: hsl(240, 100%, 10%);
-  background-repeat: no-repeat;
-  background-size: contain;
-  aspect-ratio: 1.77777778;
+  background-size: cover;
+  aspect-ratio: calc(3840/2160);
   margin: 0 1%;
 }
 
@@ -165,6 +162,7 @@ footer p
   font-size: 1.5rem;
 }
 
+/*Media justeringar av hero bannerns fontstorlek vid förändring av skärmstorlek*/
 @media (max-width: 768px)
 {
   .hero_banner_h1
@@ -196,6 +194,15 @@ footer p
 
 }
 
+.img_slides
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: min(var(--media-width), 100%);
+
+}
+
 .index_h2
 {
   color: hsl(0, 70%, 40%);
@@ -206,15 +213,7 @@ footer p
 {
   background-color: var(--background-color-ingress);
   padding: var(--padding-std);
-  margin: var(--margin-std) 0;
-}
-
-.img_slides
-{
-  display: flex;
-  justify-content: space-between;
-  width: min(var(--media-width), 100%);
-  flex-wrap: wrap;
+  margin-block: var(--margin-std);
 }
 
 /* Övningsgrid för first/nth/last-child */
@@ -261,11 +260,26 @@ footer p
   }
 }
 
-.shadow
+.navigation_flex
 {
-  box-shadow: 2px 2px 2px 2px hsl(from var(--background-color-ingress) h s calc(l - 20));
+  flex-basis: 40%;
 }
 
+.navigation_flex_ul
+{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/*Utility klass för skuggning*/
+.shadow
+{
+  box-shadow: var(--shadow-std);
+}
+
+/*rund av hörnen uppe/nere med små utilityklasser*/
 .rounded_corners_top
 {
   border-top-right-radius: var(--border-radius-std);
