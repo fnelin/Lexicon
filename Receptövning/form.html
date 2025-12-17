@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+    <head>
+        <meta charset=" UTF-8">
+        <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/forms.css">
+    </head>
+
+    <body>
+        <header></header>
+        <main>
+            <button onclick="document.getElementById('viewModal').showModal()">Öppna Modal Dialog</button>
+            <dialog id="viewModal">
+                <h3>Öppen modal dialog ruta</h3>
+                <button type="button" aria-label="Stäng"
+                    onclick="document.getElementById('viewModal').close()">X</button>
+
+            </dialog>
+            <form action="#" method="POST">
+                <label for="txt_user-name">Ditt namn</label>
+                <input id="txt_user-name" name="name" type="text" required />
+                <label for="txt_email">E-post</label>
+                <input id="txt_email" name="email" type="email" placeholder="somewhere@where.com" required />
+                <label for="sel_dept">Avdelning</label>
+                <select name="department" id="sel_dept" required>
+                    <option value="" disabled selected>Välj avdelning</option>
+                    <option value="support">Kundtjänst</option>
+                    <option value="sales">Sälj</option>
+                </select>
+                <label for="txta_msg">Meddelande</label>
+                <textarea id="txta_msg" rows="5" name="message"></textarea>
+                <label for="rating">Sätt betyg</label>
+                <input type="range" id="rating" name="rating" min="0" max="10" step="1" list="rating-markers">
+                <datalist id="rating-markers">
+                    <option value="0">0</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                </datalist>
+                <!--Använd för att gruppera inom formulär-->
+                <fieldset>
+                    <legend></legend>
+                </fieldset>
+                <!-- gruppering-->
+                <button type="submit">Skicka</button>
+            </form>
+
+        </main>
+        <footer></footer>
+    </body>
+
+</html>

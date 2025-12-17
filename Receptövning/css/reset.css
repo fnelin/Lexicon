@@ -1,6 +1,5 @@
 /*Kopierad ifrån hemsida:*/
 /* makes sizing simpler */
-
 *,
 *::before,
 *::after
@@ -10,7 +9,6 @@
 
 /* remove default spacing */
 /* force styling of type through styling, rather than elements */
-
 *
 {
   margin: 0;

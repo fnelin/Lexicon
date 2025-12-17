@@ -55,6 +55,12 @@ body
   line-height: 1.5rem;
 }
 
+button
+{
+  cursor: pointer;
+
+}
+
 main
 {
   width: 90%;
@@ -262,6 +268,61 @@ h3
   }
 }
 
+dialog
+{
+  width: 350px;
+  margin: 10rem auto;
+  border-radius: var(--border-radius-std);
+}
+
+.login_box
+{
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+
+  border: var(--border-thin-dark);
+}
+
+.login_form
+{
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem;
+
+  background-color: whitesmoke;
+}
+
+.login_form_header
+{
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  justify-content: space-between;
+
+}
+
+.login_txtbox
+{
+  border: var(--border-thin-dark);
+}
+
+.login_btn_close
+{
+  padding: 0.25rem;
+  border: 0;
+  background-color: whitesmoke;
+  color: firebrick;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.login_newuser
+{
+  font-weight: lighter;
+  font-size: smaller;
+  padding-left: 9rem;
+}
+
 .navigation_flex
 {
   flex-basis: 40%;
@@ -298,7 +359,7 @@ h3
   border-bottom-left-radius: var(--border-radius-std);
 }
 
-/*Inkopierad ifrån nätet: https://www.geeksforgeeks.org/css/css-font-border/*/
+/*Inkopierad ifrån nätet: https://www.geeksforgeeks.org/css/css-font-border/ */
 .text-border
 {
   text-shadow: -1px -1px 0 hsl(0, 0%, 0%), 1px -1px 0 hsl(0, 0%, 0%), -1px 1px 0 #000, 1px 1px 0 #000, -3px 0px 0 #000,
@@ -313,4 +374,19 @@ h3
 .font-indie-flower
 {
   font-family: "Indie Flower", cursive;
+}
+
+input:invalid+span::after
+{
+  content: " ✖";
+}
+
+input:valid+span::after
+{
+  content: " ✓";
+}
+
+input
+{
+  width: 90%;
 }

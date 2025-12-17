@@ -1,3 +1,11 @@
+v51 css
+-skapade inloggningsformulär som visas i modal dialogruta när man klickar på Logga In knappen
+-Klasserna till inloggningsformuläret namngivna som .login_NNNNNNNNN
+-Inloggningsformuläret byggt med Grid och har Flex i "headern" för att få beskrivning och knapp på varsin sida om boxen
+-Bytt muspekaren till hand när den hovrar över knappar
+-Formulär för att skapa konto i egen dialog.
+-Flyttade javascriptet ifrån knapparna till funktioner för att lättare hantering.
+
 v50 css
 -skapade Index sida och egen css fil för korten
 -Header: La in logo i headern
