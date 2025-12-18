@@ -109,6 +109,8 @@ dialog
   background-color: var(--background-color-body);
 }
 
+
+
 fieldset
 {
   border: 0;
@@ -160,7 +162,26 @@ option
   text-align: left;
 }
 
+.dialogscreens
+{
+  border: var(--border-std);
+  margin: 10rem auto;
+  border-radius: var(--border-radius-std);
+  padding: 1rem;
+  background-color: var(--background-color-body);
+}
 
+.dswide
+{
+  max-width: 800px;
+  min-width: 350px;
+}
+
+.dsthin
+{
+  max-width: 400px;
+  min-width: 350px;
+}
 
 .dialog_btn_close
 {

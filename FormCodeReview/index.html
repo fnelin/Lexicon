@@ -135,10 +135,118 @@
                     <button type="submit" class="dialog_btn">Registrera konto</button>
                     <button type="button" class="dialog_btn" onclick="closeAllDialog()">Stäng</button>
                 </div>
-
                 </form>
                 </div>
             </dialog>
+
+
+            <!--Ligger synliga för övning-->
+            <div class="dialogscreens dsthin">
+                <div class="dialog_header">
+                    <h3>Inloggningsinformation</h3>
+                    <button type="button" title="Stäng" aria-label="Stäng" onclick="closeAllDialog()"
+                        class="dialog_btn_close">X</button>
+                </div>
+                <form action="#" method="post" class="login_form">
+                    <div>
+                        <label for="username">Användarnamn</label><br>
+                        <input type="text" id="username" class="dialog_txtbox" placeholder="Kalle Kula"
+                            autocomplete="username" autofocus required /><span></span>
+                    </div>
+                    <div>
+                        <label for="pwd">Lösenord</label>
+                        <input type="password" id="pwd" class="dialog_txtbox" required placeholder="*********"
+                            minlenght="6" maxlenght="9" /><span></span>
+                    </div>
+                    <div class="login_div">
+                        <button type="submit" class="dialog_btn">Logga In</button>
+                        <a href="#" class="login_newuser" onclick="openDialog('createAccount')">Skapa nytt konto</a>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="dialogscreens dswide">
+                <div class="dialog_header">
+                    <h3>Skapa konto</h3>
+                    <button type="button" title="Stäng" aria-label="Stäng" onclick="closeAllDialog()"
+                        class="dialog_btn_close">X</button>
+                </div>
+                <form action="#" method="post" class="newaccount_form">
+                    <div>
+                        <label for="new_username">Användarnamn</label>
+                        <input type="text" id="new_username" class="dialog_txtbox" placeholder="Kalle Kula"
+                            autocomplete="username" autofocus required /><span></span>
+                    </div>
+
+                    <div>
+                        <label for="email">E-post</label>
+                        <input type="email" id="email" class="dialog_txtbox" autocomplete="email"
+                            placeholder="kalle.kula@hotmail.com" required minlength="5" /><span></span>
+                    </div>
+
+                    <div>
+                        <label for="phone">Telefon</label>
+                        <input type="phone" id="phone" class="dialog_txtbox" placeholder="+46" autocomplete="tel"
+                            required /><span></span>
+                    </div>
+
+                    <div>
+                        <label for="born">Född</label><br>
+                        <input type="date" id="born" min="1950-01-01" max="2000-01-01" placeholder="1974-01-19"
+                            class="dialog_date" required /><span></span>
+                    </div>
+
+                    <div class="newaccount_education">
+
+                        <fieldset name="certifications" id="certifications">
+                            <legend>Utbildningsnivå</legend>
+                            <div class="newaccount_cert">
+                                <div class="newaccount_level">
+                                    <span><input type="checkbox" name="cert_owd" id="cert_owd" value="owd" /><label
+                                            for="cert_owd">Open water</label></span>
+                                    <span><input type="checkbox" name="cert_adv" id="cert_adv" value="adv" /><label
+                                            for="cert_adv">Advanced</label></span>
+                                    <span><input type="checkbox" name="cert_wreck" id="cert_wreck"
+                                            value="wreck" /><label for="cert_wreck">Vrak</label></span>
+                                    <span><input type="checkbox" name="cert_cave" id="cert_cave" value="cave" /><label
+                                            for="cert_cave">Grotta</label></span>
+                                    <span><input type="checkbox" name="cert_tech" id="cert_tech" value="tech" /><label
+                                            for="cert_tech">Teknisk</label></span>
+                                </div>
+                                <div class="newaccount_depth">
+                                    <label for="deep">Max djup:</label>
+                                    <select name="deep" id="deep">
+                                        <option value="" disabled selected>Välj djup</option>
+                                        <optgroup label="Rec">
+                                            <option value="12">12m</option>
+                                            <option value="18">18m</option>
+                                            <option value="30">30m</option>
+                                            <option value="40">40m</option>
+                                        </optgroup>
+                                        <optgroup label="Tec">
+                                            <option value="45">45m</option>
+                                            <option value="50">50m</option>
+                                            <option value="60">60m</option>
+                                            <option value="75">+75m</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="newaccount_privacy">
+                        <input type="checkbox" id="privacy" required /> Jag medger att min personliga
+                        information säljs till google och/eller apple.
+                    </div>
+                    <div class="newaccount_footer">
+                        <button type="submit" class="dialog_btn">Registrera konto</button>
+                        <button type="button" class="dialog_btn" onclick="closeAllDialog()">Stäng</button>
+                    </div>
+
+                </form>
+            </div>
+
         </main>
     </body>
 
