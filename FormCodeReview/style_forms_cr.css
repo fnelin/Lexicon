@@ -124,8 +124,8 @@ select
   border-style: solid;
   border-radius: var(--border-radius-std);
   padding: 1ex 2ex;
-  max-height: 4ch;
-  ;
+  cursor: pointer;
+
   /*Backgrundfärgen vid val på checkboxes, ranges, etc*/
   accent-color: hsl(0, 0%, 50%);
 
@@ -253,22 +253,9 @@ option
 
 .newaccount_cert
 {
-  display: flex;
-  justify-content: space-between;
-  gap: 2ch;
-
-  div
-  {
-    display: flex;
-    gap: 0 1ch;
-    align-items: center;
-
-    span
-    {
-      display: flex;
-      gap: 1ch;
-    }
-  }
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr auto;
 
   @media (width <800px)
   {
@@ -278,6 +265,29 @@ option
     }
 
   }
+}
+
+.newaccount_level
+{
+  display: grid;
+  gap: 0 1ch;
+  grid-template-columns: repeat(auto-fit, minmax(min(100px, 100%), 1fr));
+  align-items: self-start;
+
+  span
+  {
+    display: flex;
+    gap: 0.5ch;
+    text-wrap: nowrap;
+
+  }
+}
+
+.newaccount_depth
+{
+  display: grid;
+  gap: 0 1ch;
+  align-self: flex-start;
 }
 
 .newaccount_privacy

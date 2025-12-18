@@ -33,7 +33,7 @@
                 <div>
                     <div class="dialog_header">
                         <h3>Inloggningsinformation</h3>
-                        <button type="button" aria-label="Stäng" onclick="closeAllDialog()"
+                        <button type="button" title="Stäng" aria-label="Stäng" onclick="closeAllDialog()"
                             class="dialog_btn_close">X</button>
                     </div>
                     <form action="#" method="post" class="login_form">
@@ -60,7 +60,7 @@
                 <div>
                     <div class="dialog_header">
                         <h3>Skapa konto</h3>
-                        <button type="button" aria-label="Stäng" onclick="closeAllDialog()"
+                        <button type="button" title="Stäng" aria-label="Stäng" onclick="closeAllDialog()"
                             class="dialog_btn_close">X</button>
                     </div>
                     <form action="#" method="post" class="newaccount_form">
@@ -93,7 +93,7 @@
                             <fieldset name="certifications" id="certifications">
                                 <legend>Utbildningsnivå</legend>
                                 <div class="newaccount_cert">
-                                    <div>
+                                    <div class="newaccount_level">
                                         <span><input type="checkbox" name="cert_owd" id="cert_owd" value="owd" /><label
                                                 for="cert_owd">Open water</label></span>
                                         <span><input type="checkbox" name="cert_adv" id="cert_adv" value="adv" /><label
@@ -105,7 +105,7 @@
                                         <span><input type="checkbox" name="cert_tech" id="cert_tech"
                                                 value="tech" /><label for="cert_tech">Teknisk</label></span>
                                     </div>
-                                    <div>
+                                    <div class="newaccount_depth">
                                         <label for="deep">Max djup:</label>
                                         <select name="deep" id="deep">
                                             <option value="" disabled selected>Välj djup</option>
