@@ -270,43 +270,30 @@ h3
 
 dialog
 {
-  width: 350px;
+  max-width: 90%;
   margin: 10rem auto;
   border-radius: var(--border-radius-std);
 }
 
-.login_box
+input
 {
-  display: grid;
-  grid-template-rows: auto auto 1fr;
-
-  border: var(--border-thin-dark);
+  background: whitesmoke;
+  color: black;
+  border: 1px;
+  border-color: lightgray;
+  border-radius: var(--border-radius-std);
+  padding: 1ex 2ex;
+  /*Backgrundfärgen vid val på checkboxes, ranges, etc*/
+  accent-color: gray;
 }
 
-.login_form
+label
 {
-  display: grid;
-  gap: 0.5rem;
-  padding: 1rem;
-
-  background-color: whitesmoke;
+  text-transform: capitalize;
+  font-size: 1rem;
 }
 
-.login_form_header
-{
-  display: flex;
-  width: 100%;
-  gap: 1rem;
-  justify-content: space-between;
-
-}
-
-.login_txtbox
-{
-  border: var(--border-thin-dark);
-}
-
-.login_btn_close
+.dialog_btn_close
 {
   padding: 0.25rem;
   border: 0;
@@ -314,6 +301,31 @@ dialog
   color: firebrick;
   font-weight: bolder;
   font-size: larger;
+}
+
+.dialog_txtbox
+{
+  border: var(--border-thin-dark);
+}
+
+.login_box
+{
+  display: grid;
+  border: var(--border-thin-dark);
+}
+
+.login_dialog,
+.newaccount_dialog
+{
+  padding: 1rem;
+  background-color: whitesmoke;
+}
+
+.login_header,
+.newaccount_header
+{
+  display: flex;
+  justify-content: space-between;
 }
 
 .login_newuser
@@ -333,6 +345,33 @@ dialog
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.newaccount_form
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @media (width < 550px)
+  {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.newaccount_privacy
+{
+  grid-column: 1/-1;
+  display: flex;
+  gap: 1ch;
+  font-size: smaller;
+}
+
+.newaccount_footer
+{
+  grid-column: 1/-1;
+  display: flex;
   justify-content: space-between;
 }
 
@@ -376,17 +415,20 @@ dialog
   font-family: "Indie Flower", cursive;
 }
 
-input:invalid+span::after
-{
-  content: " ✖";
-}
-
-input:valid+span::after
-{
-  content: " ✓";
-}
-
-input
+input:not([type="checkbox"])
 {
   width: 90%;
+
+  &:valid+span::after
+  {
+    color: green;
+    content: " ✓";
+  }
+
+  &:invalid+span::after
+  {
+    color: firebrick;
+    content: " ✖";
+  }
+
 }

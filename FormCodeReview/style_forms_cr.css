@@ -1,0 +1,261 @@
+/* Standardvärden i variabler */
+:root
+{
+  --ff-std: "Vend Sans", Arial, sans-serif;
+  --ff-footer: Helvetica, Arial, sans-serif;
+  --padding-std: 1rem;
+  --margin-std: 1rem;
+  --media-width: 400px;
+  --background-color-body: whitesmoke;
+  --background-color-ingress: hsl(from var(--background-color-body) h s calc(l - 10));
+  --border-color-std: hsl(180, 20%, 45%);
+  --border-std: 4px solid var(--border-color-std);
+  --border-dark: 2px solid var(--border-color-dark);
+  --shadow-color: hsl(from var(--background-color-ingress) h s calc(l - 20));
+  --shadow-std: 1px 5px 5px -2px var(--shadow-color);
+  --shadow-header: 2px 2px 2px 2px var(--shadow-color);
+
+  --border-radius-std: 10px;
+
+  --link-color-std: hsl(0, 0%, 13%);
+  --link-color-hover: hsl(0, 68%, 42%);
+
+  /* Variabler baserade på standardvärden */
+  --padding-half: calc(var(--padding-std) * 0.5);
+  --padding-double: calc(var(--padding-std) * 2);
+  --padding-tripple: calc(var(--padding-std) * 2);
+  --margin-double: calc(var(--margin-std) * 2);
+
+  --border-std: 4px solid var(--border-color-std);
+  --border-thin-dark: 1px solid var(--border-color-dark);
+
+  --border-color-dark: color-mix(in hsl, var(--border-color-std) 50%, black 50%);
+}
+
+body
+{
+  background-color: var(--background-color-body);
+  font-family: var(--ff-std);
+  line-height: 1.5rem;
+  width: 100%;
+  height: 1vh;
+}
+
+button
+{
+  cursor: pointer;
+}
+
+main
+{
+  display: block;
+  width: 90%;
+  margin-inline: auto;
+}
+
+
+dialog
+{
+  max-width: 90%;
+  min-width: 300px;
+  margin: 10rem auto;
+  border-radius: var(--border-radius-std);
+  padding: 1rem;
+  background-color: hsl(0, 0%, 96%);
+}
+
+fieldset
+{
+  border: 0;
+}
+
+
+input,
+select
+{
+  background: hsl(0, 0%, 96%);
+  color: black;
+  border-color: hsl(0, 0%, 83%);
+  border-style: solid;
+  border-radius: var(--border-radius-std);
+  padding: 1ex 2ex;
+  max-height: 4ch;
+  ;
+  /*Backgrundfärgen vid val på checkboxes, ranges, etc*/
+  accent-color: hsl(0, 0%, 50%);
+}
+
+label
+{
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+option
+{
+  text-align: left;
+}
+
+.login,
+.newaccount_btn
+{
+  padding: var(--padding-half);
+  background-color: var(--background-color-body);
+  border-radius: var(--border-radius-std);
+  transition: 0.5s transform;
+  min-width: 8ch;
+  text-align: center;
+  margin-top: 1rem;
+
+  &:hover,
+  &:focus
+  {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-std);
+  }
+}
+
+.dialog_btn_close
+{
+  padding: 0.25rem;
+  border: 0;
+  background-color: hsl(0, 0%, 96%);
+  color: hsl(0, 68%, 42%);
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.dialog_header
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+.dialog_txtbox
+{
+  border: var(--border-thin-dark);
+}
+
+.login_box
+{
+  display: grid;
+  border: var(--border-thin-dark);
+}
+
+.login_btn
+{
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1rem;
+
+  a
+  {
+    align-self: flex-end;
+  }
+
+}
+
+.login_newuser
+{
+  font-weight: lighter;
+  font-size: smaller;
+  padding-left: 9rem;
+}
+
+.navigation_flex
+{
+  flex-basis: 40%;
+}
+
+.navigation_flex_ul
+{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.newaccount_form
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  >div
+  {
+    padding-block: 0.5rem;
+  }
+
+  @media (width < 625px)
+  {
+    grid-template-columns: 1fr;
+  }
+}
+
+.newaccount_education
+{
+  grid-column: 1/-1;
+  display: grid;
+}
+
+.newaccount_cert
+{
+  display: flex;
+  justify-content: space-between;
+  gap: 2ch;
+
+  div
+  {
+    display: flex;
+    gap: 0 1ch;
+    align-items: center;
+
+    span
+    {
+      display: flex;
+      gap: 1ch;
+    }
+  }
+
+  @media (width <800px)
+  {
+    div
+    {
+      flex-wrap: wrap;
+    }
+
+  }
+}
+
+.newaccount_privacy
+{
+  grid-column: 1/-1;
+  display: flex;
+  gap: 1ch;
+  font-size: smaller;
+}
+
+.newaccount_footer
+{
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: space-between;
+}
+
+input:not([type="checkbox"])
+{
+  width: 90%;
+
+  &:valid+span::after
+  {
+    color: hsl(120, 100%, 25%);
+    content: " ✓";
+  }
+
+  &:invalid+span::after
+  {
+    color: hsl(0, 68%, 42%);
+    content: " ✖";
+  }
+
+}

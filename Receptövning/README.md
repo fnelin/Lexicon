@@ -5,6 +5,7 @@ v51 css
 -Bytt muspekaren till hand när den hovrar över knappar
 -Formulär för att skapa konto i egen dialog.
 -Flyttade javascriptet ifrån knapparna till funktioner för att lättare hantering.
+-Bockar efter varje input för att visa om klientside valideringen är giltig. (input:valid+span, input:invalid+span)
 
 v50 css
 -skapade Index sida och egen css fil för korten

@@ -58,55 +58,63 @@
 
     <main>
       <dialog id="viewLogIn">
-        <div class="login_form"">
-          <div class=" login_form_header">
-          <h3>Inloggningsinformation</h3>
-          <button type="button" aria-label="Stäng" onclick="closeAllDialog()" class="login_btn_close">X</button>
-        </div>
-        <form action="#" method="post" class="login_form">
-          <div>
-            <label for="username">Användarnamn</label><br>
-            <input type="text" id="username" class="login_txtbox" placeholder="Kalle Kula" autofocus
-              required /><span></span>
+        <div class="login_dialog">
+          <div class=" login_header">
+            <h3>Inloggningsinformation</h3>
+            <button type="button" aria-label="Stäng" onclick="closeAllDialog()" class="dialog_btn_close">X</button>
           </div>
-          <div>
-            <label for="pwd">Lösenord</label>
-            <input type="password" id="pwd" class="login_txtbox" required placeholder="*********" minlenght="6"
-              maxlenght="9" /><span></span>
-          </div>
-          <div>
-            <button type="submit" class="btn_log_in">Logga In</button>
-            <button type="button" class="btn_log_in" onclick="closeAllDialog()">Stäng</button>
-            <br><a href="#" class="login_newuser" onclick="openDialog('createAccount')">Registrera nytt konto</a>
-          </div>
+          <form action="#" method="post" class="login_form">
+            <div>
+              <label for="username">Användarnamn</label><br>
+              <input type="text" id="username" class="dialog_txtbox" placeholder="Kalle Kula" autofocus
+                required /><span></span>
+            </div>
+            <div>
+              <label for="pwd">Lösenord</label>
+              <input type="password" id="pwd" class="dialog_txtbox" required placeholder="*********" minlenght="6"
+                maxlenght="9" /><span></span>
+            </div>
+            <div>
+              <button type="submit" class="btn_log_in">Logga In</button>
+              <button type="button" class="btn_log_in" onclick="closeAllDialog()">Stäng</button>
+              <br><a href="#" class="login_newuser" onclick="openDialog('createAccount')">Registrera nytt konto</a>
+            </div>
 
-        </form>
+          </form>
         </div>
       </dialog>
 
       <dialog id="createAccount">
-        <div class="login_form">
-          <div class=" login_form_header">
+        <div class="newaccount_dialog">
+          <div class=" newaccount_header">
             <h3>Skapa konto</h3>
-            <button type="button" aria-label="Stäng" onclick="closeAllDialog()" class="login_btn_close">X</button>
+            <button type="button" aria-label="Stäng" onclick="closeAllDialog()" class="dialog_btn_close">X</button>
           </div>
-          <form action="#" method="post" class="login_form">
+          <form action="#" method="post" class="newaccount_form">
             <div>
-              <label for="username">Användarnamn</label>
-              <input type="text" id="username" class="login_txtbox" placeholder="Kalle Kula" autofocus
+              <label for="new_username">Användarnamn</label>
+              <input type="text" id="new_username" class="dialog_txtbox" placeholder="Kalle Kula" autofocus
                 required /><span></span>
             </div>
             <div>
               <label for="email">E-post</label>
-              <input type="email" id="email" class="login_txtbox" required
+              <input type="email" id="email" class="dialog_txtbox" required
                 placeholder="kalle.kula@hotmail.com" /><span></span>
             </div>
             <div>
-              <label for="born">Född</label><br>
-              <input type="date" id="born" min="1950-01-01" max="2000-01-01" placeholder="1974-01-19" class="login_date"
-                required /><span></span>
+              <label for="phone">Telefon</label>
+              <input type="phone" id="phone" class="dialog_txtbox" required placeholder="+46 (0)" /><span></span>
             </div>
             <div>
+              <label for="born">Född</label><br>
+              <input type="date" id="born" min="1950-01-01" max="2000-01-01" placeholder="1974-01-19"
+                class="dialog_date" required /><span></span>
+            </div>
+            <div class="newaccount_privacy">
+              <input type="checkbox" id="privacy" required /> Jag medger att min personliga
+              information inte används till någon form av otillbörligt användande.
+            </div>
+            <div class="newaccount_footer">
               <button type="submit" class="btn_log_in">Registrera konto</button>
               <button type="button" class="btn_log_in" onclick="closeAllDialog()">Stäng</button>
             </div>
