@@ -1,34 +1,79 @@
+/*Resets and standards*/
+*,
+*::before,
+*::after
+{
+  box-sizing: border-box;
+}
+
+/* remove default spacing */
+/* force styling of type through styling, rather than elements */
+*
+{
+  margin: 0;
+  padding: 0;
+  /*font: inherit;*/
+}
+
+/* dark mode user-agent-styles */
+
+html
+{
+  color-scheme: dark light;
+}
+
+/* min body height */
+body
+{
+  min-height: 100vh;
+}
+
+/* responsive images/videos */
+img,
+picture,
+svg,
+video
+{
+  display: block;
+  max-width: 100%;
+}
+
+a
+{
+  color: hsl(0, 0%, 0%);
+  text-decoration: none;
+}
+
+form,
+input,
+button,
+select,
+textarea,
+label
+{
+  font: inherit;
+  color: inherit;
+}
+
 /* Standardvärden i variabler */
 :root
 {
   --ff-std: "Vend Sans", Arial, sans-serif;
-  --ff-footer: Helvetica, Arial, sans-serif;
   --padding-std: 1rem;
-  --margin-std: 1rem;
-  --media-width: 400px;
-  --background-color-body: whitesmoke;
-  --background-color-ingress: hsl(from var(--background-color-body) h s calc(l - 10));
-  --border-color-std: hsl(180, 20%, 45%);
-  --border-std: 4px solid var(--border-color-std);
-  --border-dark: 2px solid var(--border-color-dark);
-  --shadow-color: hsl(from var(--background-color-ingress) h s calc(l - 20));
-  --shadow-std: 1px 5px 5px -2px var(--shadow-color);
-  --shadow-header: 2px 2px 2px 2px var(--shadow-color);
-
-  --border-radius-std: 10px;
-
-  --link-color-std: hsl(0, 0%, 13%);
-  --link-color-hover: hsl(0, 68%, 42%);
+  --background-color-body: hsl(0, 0%, 96%);
+  --border-color-std: black;
+  --border-radius-std: 5px;
 
   /* Variabler baserade på standardvärden */
+  --background-color-ingress: hsl(from var(--background-color-body) h s calc(l - 10));
+
+  --shadow-color: hsl(from var(--background-color-ingress) h s calc(l - 20));
+  --shadow-std: 1px 5px 5px -2px var(--shadow-color);
+
   --padding-half: calc(var(--padding-std) * 0.5);
-  --padding-double: calc(var(--padding-std) * 2);
-  --padding-tripple: calc(var(--padding-std) * 2);
-  --margin-double: calc(var(--margin-std) * 2);
 
   --border-std: 4px solid var(--border-color-std);
   --border-thin-dark: 1px solid var(--border-color-dark);
-
   --border-color-dark: color-mix(in hsl, var(--border-color-std) 50%, black 50%);
 }
 
@@ -61,7 +106,7 @@ dialog
   margin: 10rem auto;
   border-radius: var(--border-radius-std);
   padding: 1rem;
-  background-color: hsl(0, 0%, 96%);
+  background-color: var(--background-color-body);
 }
 
 fieldset
@@ -73,8 +118,8 @@ fieldset
 input,
 select
 {
-  background: hsl(0, 0%, 96%);
-  color: black;
+  background: var(--background-color-body);
+  color: hsl(0, 0%, 0%);
   border-color: hsl(0, 0%, 83%);
   border-style: solid;
   border-radius: var(--border-radius-std);
@@ -83,6 +128,25 @@ select
   ;
   /*Backgrundfärgen vid val på checkboxes, ranges, etc*/
   accent-color: hsl(0, 0%, 50%);
+
+  &:not([type="checkbox"], select)
+  {
+    width: 90%;
+
+    &:valid+span::after
+    {
+      color: hsl(120, 100%, 25%);
+      content: " ✓";
+    }
+
+    &:invalid+span::after
+    {
+      color: hsl(0, 68%, 42%);
+      content: " ✖";
+    }
+
+  }
+
 }
 
 label
@@ -96,30 +160,13 @@ option
   text-align: left;
 }
 
-.login,
-.newaccount_btn
-{
-  padding: var(--padding-half);
-  background-color: var(--background-color-body);
-  border-radius: var(--border-radius-std);
-  transition: 0.5s transform;
-  min-width: 8ch;
-  text-align: center;
-  margin-top: 1rem;
 
-  &:hover,
-  &:focus
-  {
-    transform: scale(1.1);
-    box-shadow: var(--shadow-std);
-  }
-}
 
 .dialog_btn_close
 {
   padding: 0.25rem;
   border: 0;
-  background-color: hsl(0, 0%, 96%);
+  background-color: var(--background-color-body);
   color: hsl(0, 68%, 42%);
   font-weight: bolder;
   font-size: larger;
@@ -142,12 +189,12 @@ option
   border: var(--border-thin-dark);
 }
 
-.login_btn
+.login_div
 {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  padding-block: 1rem;
+  padding-top: 1rem;
 
   a
   {
@@ -163,17 +210,23 @@ option
   padding-left: 9rem;
 }
 
-.navigation_flex
+.login_btn,
+.dialog_btn
 {
-  flex-basis: 40%;
-}
+  padding: var(--padding-half);
+  background-color: var(--background-color-body);
+  border-radius: var(--border-radius-std);
+  transition: 0.5s transform;
+  min-width: 8ch;
+  text-align: center;
+  margin-top: 1rem;
 
-.navigation_flex_ul
-{
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  &:hover,
+  &:focus
+  {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-std);
+  }
 }
 
 .newaccount_form
@@ -233,6 +286,7 @@ option
   display: flex;
   gap: 1ch;
   font-size: smaller;
+  align-items: center;
 }
 
 .newaccount_footer
@@ -240,22 +294,4 @@ option
   grid-column: 1/-1;
   display: flex;
   justify-content: space-between;
-}
-
-input:not([type="checkbox"])
-{
-  width: 90%;
-
-  &:valid+span::after
-  {
-    color: hsl(120, 100%, 25%);
-    content: " ✓";
-  }
-
-  &:invalid+span::after
-  {
-    color: hsl(0, 68%, 42%);
-    content: " ✖";
-  }
-
 }

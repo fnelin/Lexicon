@@ -4,8 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta description="övningsdokument för formulär">
+        <meta author="Fredrik.N">
         <title>Code Review Forms</title>
-        <link rel="stylesheet" href="./reset.css">
         <link rel="stylesheet" href="./style_forms_cr.css">
         <script>
             function closeAllDialog() {
@@ -24,7 +25,8 @@
 
     <body>
         <main>
-            <button href="#" class="login" aria-label="Inloggning" type="button" onclick="openDialog('viewLogIn')">Logga
+            <button href="#" class="login_btn" aria-label="Inloggning" type="button"
+                onclick="openDialog('viewLogIn')">Logga
                 in</button>
 
             <dialog id="viewLogIn">
@@ -37,16 +39,16 @@
                     <form action="#" method="post" class="login_form">
                         <div>
                             <label for="username">Användarnamn</label><br>
-                            <input type="text" id="username" class="dialog_txtbox" placeholder="Kalle Kula" autofocus
-                                required /><span></span>
+                            <input type="text" id="username" class="dialog_txtbox" placeholder="Kalle Kula"
+                                autocomplete="username" autofocus required /><span></span>
                         </div>
                         <div>
                             <label for="pwd">Lösenord</label>
                             <input type="password" id="pwd" class="dialog_txtbox" required placeholder="*********"
                                 minlenght="6" maxlenght="9" /><span></span>
                         </div>
-                        <div class="login_btn">
-                            <button type="submit" class="login">Logga In</button>
+                        <div class="login_div">
+                            <button type="submit" class="dialog_btn">Logga In</button>
                             <a href="#" class="login_newuser" onclick="openDialog('createAccount')">Skapa nytt konto</a>
                         </div>
 
@@ -65,7 +67,7 @@
                         <div>
                             <label for="new_username">Användarnamn</label>
                             <input type="text" id="new_username" class="dialog_txtbox" placeholder="Kalle Kula"
-                                autofocus required /><span></span>
+                                autocomplete="username" autofocus required /><span></span>
                         </div>
 
                         <div>
@@ -82,8 +84,8 @@
 
                         <div>
                             <label for="born">Född</label><br>
-                            <input type="date" id="born" min="1950-01-01" max="2000-01-01" autocomplete="bday"
-                                placeholder="1974-01-19" class="dialog_date" required /><span></span>
+                            <input type="date" id="born" min="1950-01-01" max="2000-01-01" placeholder="1974-01-19"
+                                class="dialog_date" required /><span></span>
                         </div>
 
                         <div class="newaccount_education">
@@ -130,8 +132,8 @@
                     information säljs till google och/eller apple.
                 </div>
                 <div class="newaccount_footer">
-                    <button type="submit" class="newaccount_btn">Registrera konto</button>
-                    <button type="button" class="newaccount_btn" onclick="closeAllDialog()">Stäng</button>
+                    <button type="submit" class="dialog_btn">Registrera konto</button>
+                    <button type="button" class="dialog_btn" onclick="closeAllDialog()">Stäng</button>
                 </div>
 
                 </form>
