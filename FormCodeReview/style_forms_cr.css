@@ -162,6 +162,10 @@ option
   text-align: left;
 }
 
+/*
+For when the dialogscreens are outside the dialog tags
+the following three classes act as containers.
+*/
 .dialogscreens
 {
   border: var(--border-std);
