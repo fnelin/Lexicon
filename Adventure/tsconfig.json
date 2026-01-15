@@ -1,0 +1,12 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "module": "es2022",
+    "target": "es2022",
+    "sourceMap": true,
+    "noUncheckedIndexedAccess": false,
+    "strict": true
+  }
+}

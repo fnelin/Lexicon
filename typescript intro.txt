@@ -1,0 +1,22 @@
+npm install typescript --save-dev
+
+npx tsc --init
+
+tsconfig.json
+"esModuleInterop": true - En tolk för att "prata" med äldre bibliotel
+"rootDir": "./src" - Plats för källkoden.
+"outDir":"./dist" - Plats för den kompilerade ts koden.
+"module":"es2022"
+"target":"es2022" - vilken v av js som används
+
+"sourceMap":true - vi kan se typescript koden i webbläsaren
+
+"noUncheckedIndexAcess":false - gör det mindre strikt, kan sätta variabler som undefined
+
+"strict":true - vad som gör typescript typsäkert.
+
+index.html
+-koppling mot kompilerade typescriptfilen med script
+<script type="module" src="./dist/index.js"></script>
+
+

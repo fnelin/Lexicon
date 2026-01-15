@@ -1,0 +1,122 @@
+/* -- ------------------- START RESET --------------------- */
+*,
+*::before,
+*::after
+{
+    box-sizing: border-box;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    /*font: inherit;*/
+}
+
+/* min body height */
+body
+{
+    min-height: 100vh;
+}
+
+/* responsive images/videos */
+img,
+picture,
+svg,
+video
+{
+    display: block;
+    max-width: 100%;
+}
+
+a
+{
+    color: hsl(0, 0%, 0%);
+    text-decoration: none;
+}
+
+/* -- ------------------- END RESET --------------------- */
+
+#authorInformation
+{
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 0 0.5rem;
+}
+
+body
+{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-family: "Inter", sans-serif;
+}
+
+#bookListContainer
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 80%;
+    align-items: stretch;
+    justify-content: center;
+}
+
+h2,
+h3
+{
+    font-family: "Montserrat", sans-serif;
+}
+
+.bookCard
+{
+    background-color: hsl(0, 0%, 90%);
+    border: 2px solid hsl(0, 0%, 70%);
+    width: 30%;
+    min-width: 15rem;
+    padding: 1rem;
+}
+
+#bookCover,
+#authorPicture,
+.bookCard
+{
+    border-radius: 1rem;
+    corner-shape: squircle;
+    max-width: 15rem;
+}
+
+#bookInformation
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 1rem;
+
+    >*
+    {
+        padding: 0.25rem
+    }
+}
+
+#bookInformationDetails
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+}
+
+#bookISBN,
+#authorBorn
+{
+    font-size: 0.8rem;
+}
+
+img
+{
+    width: 100%;
+}
