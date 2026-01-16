@@ -37,11 +37,13 @@ a
 
 /* -- ------------------- END RESET --------------------- */
 
-#authorInformation
+
+
+.authorInformation
 {
     width: 100%;
     display: flex;
-    align-items: baseline;
+    align-items: flex-end;
     justify-content: space-between;
     padding: 0 0.5rem;
 }
@@ -55,15 +57,14 @@ body
     font-family: "Inter", sans-serif;
 }
 
-#bookListContainer
+.bookListContainer
 {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    /*Magic formula from mr Powell*/
+    grid-template-columns: repeat(auto-fit, minmax(min(15rem, 80%), 1fr));
     justify-content: space-between;
-    gap: 2rem;
+    gap: 0.5rem;
     width: 80%;
-    align-items: stretch;
-    justify-content: center;
 }
 
 h2,
@@ -74,15 +75,26 @@ h3
 
 .bookCard
 {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+    align-items: center;
     background-color: hsl(0, 0%, 90%);
     border: 2px solid hsl(0, 0%, 70%);
     width: 30%;
     min-width: 15rem;
-    padding: 1rem;
+    padding-inline: 1rem;
+
+    &:hover
+    {
+        background-color: hsl(0, 0%, 80%);
+        border: 2px solid hsl(0, 0%, 60%);
+        cursor: pointer;
+    }
 }
 
-#bookCover,
-#authorPicture,
+.bookCover,
+.authorPicture,
 .bookCard
 {
     border-radius: 1rem;
@@ -90,7 +102,7 @@ h3
     max-width: 15rem;
 }
 
-#bookInformation
+.bookInformation
 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -102,7 +114,7 @@ h3
     }
 }
 
-#bookInformationDetails
+.bookInformationDetails
 {
     display: flex;
     flex-direction: column;
@@ -110,8 +122,8 @@ h3
 
 }
 
-#bookISBN,
-#authorBorn
+.bookISBN,
+.authorBorn
 {
     font-size: 0.8rem;
 }
@@ -119,4 +131,16 @@ h3
 img
 {
     width: 100%;
+}
+
+.active
+{
+    border: 2px solid hsl(120, 100%, 70%);
+
+    &:hover
+    {
+        border: 2px solid hsl(120, 100%, 40%);
+        background-color: hsl(120, 100%, 90%);
+
+    }
 }

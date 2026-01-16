@@ -59,97 +59,70 @@ const inventoryBooks: Book[] = [
   },
 ];
 
-const bookCard = document.getElementById("bookCard");
-const bookTitleElement = document.getElementById("bookTitle");
-const bookISBNElement = document.getElementById("bookISBN");
-const bookLanguageElement = document.getElementById("bookLanguage");
-const bookIsTranslatedElement = document.getElementById("bookIsTranslated");
-const bookCoverElement = document.getElementById("bookCover") as HTMLImageElement;
-
-const authorNameElement = document.getElementById("authorName");
-const authorBornElement = document.getElementById("authorBorn");
-const authorPictureElement = document.getElementById("authorPicture") as HTMLImageElement;
-
-/* const currentBook = inventoryBooks[1];
-const currentAuthor = currentBook.author;
-
-if (bookTitleElement) {
-  bookTitleElement.textContent = currentBook.title;
-}
-if (bookISBNElement) {
-  bookISBNElement.textContent = currentBook.ISBN.toString();
-}
-if (bookLanguageElement) {
-  bookLanguageElement.textContent = currentBook.language;
-}
-
-if (bookIsTranslatedElement) {
-  bookIsTranslatedElement.textContent = currentBook.isTranslation ? "Översatt" : "Originalspråk";
-}
-
-if (bookCoverElement && currentBook.coverURL) {
-  bookCoverElement.src = currentBook.coverURL;
-}
-
-if (authorNameElement) {
-  authorNameElement.textContent = currentAuthor.name;
-}
-
-if (authorBornElement) {
-  authorBornElement.textContent = "Född: " + currentAuthor.born.toString();
-}
-
-if (authorPictureElement && currentAuthor.photo) {
-  authorPictureElement.src = currentAuthor.photo;
-} */
-
 const bookListContainer = document.querySelector("#bookListContainer");
 
 inventoryBooks.forEach((book) => {
-  const card = document.createElement("article");
-  card.id = "bookCard";
-  card.classList.add("bookCard");
+  const articleCard = skapaHTMLElement("article", "", "bookCard", "bookCard-" + book.ISBN);
+  const divBookInformation = skapaHTMLElement("div", "", "bookInformation", "bookInformation-" + book.ISBN);
+  const divBookInformationDetails = skapaHTMLElement(
+    "div",
+    "",
+    "bookInformationDetails",
+    "bookInformationDetails-" + book.ISBN
+  );
+  const divAuthor = skapaHTMLElement("div", "", "bookAuthor", "bookAuthor-" + book.ISBN);
 
-  const title = document.createElement("h2");
-  title.textContent = book.title;
-  title.id = "bookTitle";
-  card.append(title);
+  articleCard.append(skapaHTMLElement("h2", book.title, "bookTitle", "bookTitle-" + book.ISBN));
 
-  const divBookinformation = document.createElement("div");
-  divBookinformation.id = "bookInformation";
+  articleCard.append(divBookInformation);
+  articleCard.append(divAuthor);
 
-  if (book.coverURL) {
-    const cover = document.createElement("img") as HTMLImageElement;
-    cover.src = book.coverURL;
-    cover.id = "bookCover";
-    divBookinformation.append(cover);
-  }
-  const divBookinformationDetails = document.createElement("div");
-  divBookinformationDetails.id = "bookInformationDetails";
-  divBookinformationDetails.append(skapaHTMLElement("span", book.language, "bookLanguage"));
-  divBookinformationDetails.append(skapaHTMLElement("span", book.ISBN.toString(), "bookISBN"));
-  divBookinformation.append(divBookinformationDetails);
-  card.append(divBookinformation);
+  const bookCoverUrl = book.coverURL ? book.coverURL : "";
+  divBookInformation.append(skapaHTMLElement("img", bookCoverUrl, "bookCover", "bookCover-" + book.ISBN));
+  divBookInformation.append(divBookInformationDetails);
+  divBookInformationDetails.append(
+    skapaHTMLElement("span", book.language, "bookLanguage", "bookLanguage-" + book.ISBN)
+  );
 
-  const divAuthorInformationDetails = document.createElement("div");
-  divAuthorInformationDetails.id = "bookAuthor";
-  card.append(divAuthorInformationDetails);
+  const bookIsTranslated = book.isTranslation ? "Översatt" : "Originalspråk";
+  divBookInformationDetails.append(
+    skapaHTMLElement("span", bookIsTranslated, "bookIsTranslated", "bookIsTranslated-" + book.ISBN)
+  );
+  divBookInformationDetails.append(skapaHTMLElement("span", book.ISBN.toString(), "bookISBN", "bookISBN-" + book.ISBN));
 
-  if (bookListContainer) {
-    bookListContainer.append(card);
-  }
+  const authorPicture = book.author.photo ? book.author.photo : "";
+  divAuthor.append(skapaHTMLElement("img", authorPicture, "authorPicture"));
+  const spanAuthorInformation = skapaHTMLElement("span", "", "authorInformation");
+  divAuthor.append(spanAuthorInformation);
+  spanAuthorInformation.append(skapaHTMLElement("h3", book.author.name, "authorName"));
+  spanAuthorInformation.append(skapaHTMLElement("span", book.author.born.toString(), "authorBorn"));
+
+  articleCard.addEventListener("click", () => {
+    const currentActive = document.querySelector(".bookCard.active");
+    const hasActive = articleCard.classList.contains("active");
+
+    /* if (currentActive) {
+        currentActive.classList.remove("active");
+      } */
+    currentActive?.classList.remove("active");
+
+    if (!hasActive) {
+      articleCard.classList.add("active");
+    }
+  });
+
+  bookListContainer?.append(articleCard);
 });
 
-function skapaHTMLElement(e: string, content: string, idCSS: string) {
-  if (e === "img") {
-    const el = document.createElement(e) as HTMLImageElement;
-    el.id = idCSS;
+function skapaHTMLElement(e: string, content: string, classCSS: string, idCSS?: string) {
+  /*Slutresultat en blandning av båda ovanstående med hjälp av instanceof.*/
+  const el = e === "img" ? (document.createElement(e) as HTMLImageElement) : document.createElement(e);
+  if (el instanceof HTMLImageElement) {
     el.src = content;
-    return el;
   } else {
-    const el = document.createElement(e);
     el.textContent = content;
-    el.id = idCSS;
-    return el;
   }
+  el.id = idCSS ? idCSS : classCSS;
+  el.className = classCSS;
+  return el;
 }
