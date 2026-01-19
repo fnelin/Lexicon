@@ -37,6 +37,40 @@ a
 
 /* -- ------------------- END RESET --------------------- */
 
+/* -- ------------------- START VARIABLES --------------------- */
+:root
+{
+    --clr-blue-lighter: rgb(213, 225, 236);
+    --clr-blue-light: rgb(167, 187, 205);
+    --clr-blue-med: rgb(126, 147, 165);
+    --clr-blue-dark: rgb(63, 76, 115);
+
+    --clr-beige-light: hsl(35, 28%, 65%);
+    --clr-beige-med: hsl(28, 21%, 51%);
+    --clr-beige-dark: hsl(29, 26%, 37%);
+
+    --clr-dark-light: hsl(25, 14%, 34%);
+    --clr-dark-med: hsl(13, 22%, 16%);
+    --clr-dark-dark: hsl(20, 38%, 6%);
+
+    --clr-brown-light: hsl(40, 91%, 31%);
+    --clr-brown-med: hsl(31, 97%, 24%);
+    --clr-brown-dark: hsl(30, 96%, 19%);
+    --clr-brown-darker: hsl(31, 95%, 15%);
+
+    --clr-red-light: hsl(15, 71%, 30%);
+    --clr-red-med: hsl(10, 74%, 28%);
+    --clr-red-dark: hsl(7, 85%, 18%);
+    --clr-red-darker: hsl(0, 93%, 11%);
+
+    --clr-gray-light: hsl(18, 17%, 85%);
+    --clr-gray-med: hsl(20, 4%, 42%);
+    --clr-gray-dark: hsl(17, 5%, 26%);
+    --clr-gray-darker: hsl(24, 14%, 15%);
+
+}
+
+/* -- -------------------  END VARIABLES  --------------------- */
 
 
 .authorInformation
@@ -48,13 +82,48 @@ a
     padding: 0 0.5rem;
 }
 
-body
+.frmAddBook
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 0.5rem;
+    background: var(--clr-blue-lighter);
+    border: 1px solid black;
+}
+
+.frmAddInformation
 {
     display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    >input
+    {
+        border: 1px solid var(--clr-gray-med);
+        border-radius: 5px;
+        width: 100%;
+        height: 1.24rem;
+    }
+}
+
+main
+{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     width: 100%;
     align-items: center;
     justify-content: center;
     font-family: "Inter", sans-serif;
+    min-height: 100vh;
+}
+
+.bookAuthor
+{
+    align-self: end;
+    margin-bottom: 0.5rem;
+
 }
 
 .bookListContainer
@@ -79,16 +148,17 @@ h3
     grid-template-rows: subgrid;
     grid-row: span 3;
     align-items: center;
-    background-color: hsl(0, 0%, 90%);
-    border: 2px solid hsl(0, 0%, 70%);
+    background-color: hsl(0, 0%, 83%);
+    border: 2px solid hsl(0, 0%, 50%);
     width: 30%;
     min-width: 15rem;
     padding-inline: 1rem;
 
     &:hover
     {
-        background-color: hsl(0, 0%, 80%);
-        border: 2px solid hsl(0, 0%, 60%);
+        background-color: hsl(0, 0%, 70%);
+        border: 2px solid hsl(0, 0%, 20%);
+        transition: ease-in-out 200ms;
         cursor: pointer;
     }
 }
@@ -135,12 +205,12 @@ img
 
 .active
 {
-    border: 2px solid hsl(120, 100%, 70%);
+    border: 2px solid hsl(120, 100%, 50%);
 
     &:hover
     {
-        border: 2px solid hsl(120, 100%, 40%);
-        background-color: hsl(120, 100%, 90%);
+        border: 2px solid hsl(120, 100%, 30%);
+        background-color: hsl(120, 100%, 95%);
 
     }
 }

@@ -13,8 +13,32 @@
     </head>
 
     <body>
-        <main id="bookListContainer" class="bookListContainer">
+        <main>
+            <section id="bookListContainer" class="bookListContainer">
+            </section>
 
+            <form id="frmAddBook" class="frmAddBook">
+                <section class="frmAddInformation">
+                    <h3>Information Bok</h3>
+                    <label>Namn</label><input type="text" id="txtBookName" required>
+                    <label>Omslag</label><input type="text" id="txtBookCover">
+                    <label>Språk</label><input type="text" id="txtLanguage" required>
+                    <section>
+                        <label> Översättning</label>
+                        <input type="radio" id="chkTranslated" name="Translation" value="true" checked required>Ja
+                        <input type="radio" id="chkTranslated" name="Translation" value="false" required>Nej
+                    </section>
+                    <label>ISBN</label><input type="text" id="txtISBN" required>
+                </section>
+                <section class="frmAddInformation">
+                    <h3>Information Författare</h3>
+                    <label>Namn</label><input type="text" id="txtAuthorName" required>
+                    <label>Född</label><input type="text" id="txtAuthorBorn" required>
+                    <label>Bild</label><input type="text" id="txtAuthorPic">
+                </section>
+                <button type="">Lägg till</button>
+                <button type="reset">Rensa</button>
+            </form>
         </main>
     </body>
 
