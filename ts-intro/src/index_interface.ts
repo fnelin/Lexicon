@@ -61,58 +61,74 @@ const inventoryBooks: Book[] = [
 
 const bookListContainer = document.querySelector("#bookListContainer");
 
-inventoryBooks.forEach((book) => {
-  const articleCard = skapaHTMLElement("article", "", "bookCard", "bookCard-" + book.ISBN);
-  const divBookInformation = skapaHTMLElement("div", "", "bookInformation", "bookInformation-" + book.ISBN);
-  const divBookInformationDetails = skapaHTMLElement(
-    "div",
-    "",
-    "bookInformationDetails",
-    "bookInformationDetails-" + book.ISBN
-  );
-  const divAuthor = skapaHTMLElement("div", "", "bookAuthor", "bookAuthor-" + book.ISBN);
+const dialog = document.querySelector("#add-book-dialog") as HTMLDialogElement;
+const btnOpenDialog = document.querySelector("#open-modal-btn") as HTMLButtonElement;
+const btnCloseDialog = document.querySelector("#close-modal-btn") as HTMLButtonElement;
 
-  articleCard.append(skapaHTMLElement("h2", book.title, "bookTitle", "bookTitle-" + book.ISBN));
+const addForm = document.querySelector("#frmAddBook") as HTMLFormElement;
+const strBookName = document.querySelector("#txtBookName") as HTMLInputElement;
+const strBookCover = document.querySelector("#txtCover") as HTMLInputElement;
+const strBookLanguage = document.querySelector("#txtLanguage") as HTMLInputElement;
+const strBookISBN = document.querySelector("#txtISBN") as HTMLInputElement;
+const strAuthorName = document.querySelector("#txtAuthorName") as HTMLInputElement;
+const strAuthorBorn = document.querySelector("#txtAuthorBorn") as HTMLInputElement;
+const strAuthorPicture = document.querySelector("#txtAuthorPic") as HTMLInputElement;
 
-  articleCard.append(divBookInformation);
-  articleCard.append(divAuthor);
+function renderBooks() {
+  bookListContainer?.replaceChildren();
 
-  const bookCoverUrl = book.coverURL ? book.coverURL : "";
-  divBookInformation.append(skapaHTMLElement("img", bookCoverUrl, "bookCover", "bookCover-" + book.ISBN));
-  divBookInformation.append(divBookInformationDetails);
-  divBookInformationDetails.append(
-    skapaHTMLElement("span", book.language, "bookLanguage", "bookLanguage-" + book.ISBN)
-  );
+  inventoryBooks.forEach((book) => {
+    const articleCard = skapaHTMLElement("article", "", "bookCard", "bookCard-" + book.ISBN);
+    const divBookInformation = skapaHTMLElement("div", "", "bookInformation", "bookInformation-" + book.ISBN);
+    const divBookInformationDetails = skapaHTMLElement(
+      "div",
+      "",
+      "bookInformationDetails",
+      "bookInformationDetails-" + book.ISBN,
+    );
+    const divAuthor = skapaHTMLElement("div", "", "bookAuthor", "bookAuthor-" + book.ISBN);
 
-  const bookIsTranslated = book.isTranslation ? "Översatt" : "Originalspråk";
-  divBookInformationDetails.append(
-    skapaHTMLElement("span", bookIsTranslated, "bookIsTranslated", "bookIsTranslated-" + book.ISBN)
-  );
-  divBookInformationDetails.append(skapaHTMLElement("span", book.ISBN.toString(), "bookISBN", "bookISBN-" + book.ISBN));
+    articleCard.append(skapaHTMLElement("h2", book.title, "bookTitle", "bookTitle-" + book.ISBN));
 
-  const authorPicture = book.author.photo ? book.author.photo : "";
-  divAuthor.append(skapaHTMLElement("img", authorPicture, "authorPicture"));
-  const spanAuthorInformation = skapaHTMLElement("span", "", "authorInformation");
-  divAuthor.append(spanAuthorInformation);
-  spanAuthorInformation.append(skapaHTMLElement("h3", book.author.name, "authorName"));
-  spanAuthorInformation.append(skapaHTMLElement("span", book.author.born.toString(), "authorBorn"));
+    articleCard.append(divBookInformation);
+    articleCard.append(divAuthor);
 
-  articleCard.addEventListener("click", () => {
-    const currentActive = document.querySelector(".bookCard.active");
-    const hasActive = articleCard.classList.contains("active");
+    const bookCoverUrl = book.coverURL ? book.coverURL : "";
+    divBookInformation.append(skapaHTMLElement("img", bookCoverUrl, "bookCover", "bookCover-" + book.ISBN));
+    divBookInformation.append(divBookInformationDetails);
+    divBookInformationDetails.append(
+      skapaHTMLElement("span", book.language, "bookLanguage", "bookLanguage-" + book.ISBN),
+    );
 
-    /* if (currentActive) {
-        currentActive.classList.remove("active");
-      } */
-    currentActive?.classList.remove("active");
+    const bookIsTranslated = book.isTranslation ? "Översatt" : "Originalspråk";
+    divBookInformationDetails.append(
+      skapaHTMLElement("span", bookIsTranslated, "bookIsTranslated", "bookIsTranslated-" + book.ISBN),
+    );
+    divBookInformationDetails.append(
+      skapaHTMLElement("span", book.ISBN.toString(), "bookISBN", "bookISBN-" + book.ISBN),
+    );
 
-    if (!hasActive) {
-      articleCard.classList.add("active");
-    }
+    const authorPicture = book.author.photo ? book.author.photo : "";
+    divAuthor.append(skapaHTMLElement("img", authorPicture, "authorPicture"));
+    const spanAuthorInformation = skapaHTMLElement("span", "", "authorInformation");
+    divAuthor.append(spanAuthorInformation);
+    spanAuthorInformation.append(skapaHTMLElement("h3", book.author.name, "authorName"));
+    spanAuthorInformation.append(skapaHTMLElement("span", book.author.born.toString(), "authorBorn"));
+
+    articleCard.addEventListener("click", () => {
+      const currentActive = document.querySelector(".bookCard.active");
+      const hasActive = articleCard.classList.contains("active");
+
+      currentActive?.classList.remove("active");
+
+      if (!hasActive) {
+        articleCard.classList.add("active");
+      }
+    });
+
+    bookListContainer?.append(articleCard);
   });
-
-  bookListContainer?.append(articleCard);
-});
+}
 
 function skapaHTMLElement(e: string, content: string, classCSS: string, idCSS?: string) {
   /*Slutresultat en blandning av båda ovanstående med hjälp av instanceof.*/
@@ -126,3 +142,49 @@ function skapaHTMLElement(e: string, content: string, classCSS: string, idCSS?: 
   el.className = classCSS;
   return el;
 }
+
+renderBooks();
+
+btnOpenDialog.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+btnCloseDialog.addEventListener("click", () => {
+  addForm.reset();
+  dialog.close();
+});
+
+addForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const BookTitle = strBookName.value;
+  const BookCover = strBookCover.value;
+  const BookLanguage = strBookLanguage.value;
+  const BookISBN = Number(strBookISBN.value); //Konvertera till siffror
+  const AuthorName = strAuthorName.value;
+  const AuthorBorn = Number(strAuthorBorn.value); //Konvertera till siffror
+  const AuthorPic = strAuthorPicture.value;
+
+  const newAuthor: Author = {
+    name: AuthorName,
+    born: AuthorBorn,
+    photo: AuthorPic,
+  };
+
+  const newBook: Book = {
+    id: 4,
+    title: BookTitle,
+    ISBN: BookISBN,
+    language: BookLanguage,
+    coverURL: BookCover,
+    isTranslation: false,
+    author: newAuthor,
+  };
+
+  inventoryBooks.push(newBook);
+
+  renderBooks();
+
+  addForm.reset();
+  dialog.close();
+});

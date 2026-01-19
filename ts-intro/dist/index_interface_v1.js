@@ -104,4 +104,4 @@ if (authorPictureElement && currentAuthor.photo) {
   authorPictureElement.src = currentAuthor.photo;
 }
  */
-//# sourceMappingURL=index_interface_old.js.map
+//# sourceMappingURL=index_interface_v1.js.map

@@ -13,19 +13,23 @@
     </head>
 
     <body>
+        <header>
+            <button id="open-modal-btn">Ny bok</button>
+        </header>
         <main>
             <section id="bookListContainer" class="bookListContainer">
             </section>
-
+        </main>
+        <dialog id="add-book-dialog" class="modal">
             <form id="frmAddBook" class="frmAddBook">
                 <section class="frmAddInformation">
                     <h3>Information Bok</h3>
                     <label><span>Namn</span><input type="text" id="txtBookName" required></label>
-                    <label><span>Omslag</span><input type="text" id="txtBookCover"></label>
+                    <label><span>Omslag</span><input type="text" id="txtCover"></label>
                     <label><span>Språk</span><input type="text" id="txtLanguage" required></label>
-                    <section class="translationCheckbox">
+                    <section class="translationRadio">
                         <label><span>Översättning</span>
-                            <div class="translationCheckboxChoices">
+                            <div class="translationRadioChoices">
                                 <input type="radio" name="Translation" value="true" required>Ja
                                 <input type="radio" name="Translation" value="false" required>Nej
                             </div>
@@ -39,10 +43,11 @@
                     <label><span>Född</span><input type="text" id="txtAuthorBorn" required></label>
                     <label><span>Bild</span><input type="text" id="txtAuthorPic"></label>
                 </section>
-                <button type="button" class="btn">Lägg till</button>
-                <button type="reset" class="btn">Rensa</button>
+                <button type="submit" class="btn">Lägg till</button>
+                <button type="button" id="close-modal-btn" class="btn">Stäng</button>
             </form>
-        </main>
+
+        </dialog>
     </body>
 
 </html>
