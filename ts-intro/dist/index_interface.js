@@ -51,6 +51,7 @@ const strBookISBN = document.querySelector("#txtISBN");
 const strAuthorName = document.querySelector("#txtAuthorName");
 const strAuthorBorn = document.querySelector("#txtAuthorBorn");
 const strAuthorPicture = document.querySelector("#txtAuthorPic");
+const radioIsTranslation = document.getElementsByName("rdoIsTranslation");
 function renderBooks() {
     bookListContainer?.replaceChildren();
     inventoryBooks.forEach((book) => {
@@ -112,6 +113,7 @@ addForm.addEventListener("submit", (e) => {
     const BookCover = strBookCover.value;
     const BookLanguage = strBookLanguage.value;
     const BookISBN = Number(strBookISBN.value); //Konvertera till siffror
+    const BookTranslation = radioIsTranslation[0].checked ? true : false;
     const AuthorName = strAuthorName.value;
     const AuthorBorn = Number(strAuthorBorn.value); //Konvertera till siffror
     const AuthorPic = strAuthorPicture.value;
@@ -121,12 +123,12 @@ addForm.addEventListener("submit", (e) => {
         photo: AuthorPic,
     };
     const newBook = {
-        id: 4,
+        id: findNextBookID(),
         title: BookTitle,
         ISBN: BookISBN,
         language: BookLanguage,
         coverURL: BookCover,
-        isTranslation: false,
+        isTranslation: BookTranslation,
         author: newAuthor,
     };
     inventoryBooks.push(newBook);
@@ -134,4 +136,11 @@ addForm.addEventListener("submit", (e) => {
     addForm.reset();
     dialog.close();
 });
+function findNextBookID() {
+    let _high = 1;
+    for (let id of inventoryBooks) {
+        _high = Number(id["id"]) >= _high ? Number(id["id"]) + 1 : _high;
+    }
+    return _high;
+}
 //# sourceMappingURL=index_interface.js.map
