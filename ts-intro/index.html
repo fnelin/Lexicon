@@ -20,24 +20,27 @@
             <form id="frmAddBook" class="frmAddBook">
                 <section class="frmAddInformation">
                     <h3>Information Bok</h3>
-                    <label>Namn</label><input type="text" id="txtBookName" required>
-                    <label>Omslag</label><input type="text" id="txtBookCover">
-                    <label>Språk</label><input type="text" id="txtLanguage" required>
-                    <section>
-                        <label> Översättning</label>
-                        <input type="radio" id="chkTranslated" name="Translation" value="true" checked required>Ja
-                        <input type="radio" id="chkTranslated" name="Translation" value="false" required>Nej
+                    <label><span>Namn</span><input type="text" id="txtBookName" required></label>
+                    <label><span>Omslag</span><input type="text" id="txtBookCover"></label>
+                    <label><span>Språk</span><input type="text" id="txtLanguage" required></label>
+                    <section class="translationCheckbox">
+                        <label><span>Översättning</span>
+                            <div class="translationCheckboxChoices">
+                                <input type="radio" name="Translation" value="true" required>Ja
+                                <input type="radio" name="Translation" value="false" required>Nej
+                            </div>
+                        </label>
                     </section>
-                    <label>ISBN</label><input type="text" id="txtISBN" required>
+                    <label><span>ISBN</span><input type="text" id="txtISBN" required></label>
                 </section>
                 <section class="frmAddInformation">
                     <h3>Information Författare</h3>
-                    <label>Namn</label><input type="text" id="txtAuthorName" required>
-                    <label>Född</label><input type="text" id="txtAuthorBorn" required>
-                    <label>Bild</label><input type="text" id="txtAuthorPic">
+                    <label><span>Namn</span><input type="text" id="txtAuthorName" required></label>
+                    <label><span>Född</span><input type="text" id="txtAuthorBorn" required></label>
+                    <label><span>Bild</span><input type="text" id="txtAuthorPic"></label>
                 </section>
-                <button type="">Lägg till</button>
-                <button type="reset">Rensa</button>
+                <button type="button" class="btn">Lägg till</button>
+                <button type="reset" class="btn">Rensa</button>
             </form>
         </main>
     </body>

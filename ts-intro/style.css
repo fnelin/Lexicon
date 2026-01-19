@@ -82,6 +82,24 @@ a
     padding: 0 0.5rem;
 }
 
+.btn
+{
+    font-size: large;
+    width: 75%;
+    padding: 0.5rem;
+    border-radius: 10px;
+    align-self: center;
+    justify-self: center;
+    border: 1px solid black;
+}
+
+label:has(span)
+{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
 .frmAddBook
 {
     display: grid;
@@ -102,7 +120,6 @@ a
     {
         border: 1px solid var(--clr-gray-med);
         border-radius: 5px;
-        width: 100%;
         height: 1.24rem;
     }
 }
@@ -213,4 +230,16 @@ img
         background-color: hsl(120, 100%, 95%);
 
     }
+}
+
+.translationCheckbox
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.translationCheckboxChoices
+{
+    display: flex;
+    gap: 0.5rem;
 }
