@@ -1,5 +1,5 @@
-//#region ---------------------------------- Interfaces/Typer ---------------------------------------------*/
-
+//Interfaces/Typer
+/*
 interface Book {
   id: number;
   title: string;
@@ -17,8 +17,7 @@ interface Author {
 }
 
 type bookStatus = `Order` | `Wishlist`;
-//#endregion
-//#region ---------------------------------- Mock data ----------------------------------------------------*/
+
 const inventoryBooks: Book[] = [
   {
     id: 1,
@@ -59,12 +58,13 @@ const inventoryBooks: Book[] = [
     coverURL: "https://image.bokus.com/images/9789170028052_200x_pestens-tid_storpocket",
   },
 ];
-//#endregion
-//#region ---------------------------------- Deklarationer av konstanter ----------------------------------*/
+
 const bookListContainer = document.querySelector("#bookListContainer");
+
 const dialog = document.querySelector("#add-book-dialog") as HTMLDialogElement;
 const btnOpenDialog = document.querySelector("#open-modal-btn") as HTMLButtonElement;
 const btnCloseDialog = document.querySelector("#close-modal-btn") as HTMLButtonElement;
+
 const addForm = document.querySelector("#frmAddBook") as HTMLFormElement;
 const strBookName = document.querySelector("#txtBookName") as HTMLInputElement;
 const strBookCover = document.querySelector("#txtCover") as HTMLInputElement;
@@ -74,8 +74,7 @@ const strAuthorName = document.querySelector("#txtAuthorName") as HTMLInputEleme
 const strAuthorBorn = document.querySelector("#txtAuthorBorn") as HTMLInputElement;
 const strAuthorPicture = document.querySelector("#txtAuthorPic") as HTMLInputElement;
 const radioIsTranslation = document.getElementsByName("rdoIsTranslation");
-//#endregion
-//#region ---------------------------------- Funktioner ---------------------------------------------------*/
+
 function renderBooks() {
   bookListContainer?.replaceChildren();
 
@@ -117,7 +116,16 @@ function renderBooks() {
     spanAuthorInformation.append(skapaHTMLElement("h3", book.author.name, "authorName"));
     spanAuthorInformation.append(skapaHTMLElement("span", book.author.born.toString(), "authorBorn"));
 
-    articleCard.dataset.id = book.id.toString();
+    articleCard.addEventListener("click", () => {
+      const currentActive = document.querySelector(".bookCard.active");
+      const hasActive = articleCard.classList.contains("active");
+
+      currentActive?.classList.remove("active");
+
+      if (!hasActive) {
+        articleCard.classList.add("active");
+      }
+    });
 
     bookListContainer?.append(articleCard);
   });
@@ -135,28 +143,7 @@ function skapaHTMLElement(e: string, content: string, classCSS: string, idCSS?: 
   return el;
 }
 
-function findNextBookID(): number {
-  let _high = 1;
-  for (let id of inventoryBooks) {
-    _high = Number(id["id"]) >= _high ? Number(id["id"]) + 1 : _high;
-  }
-  return _high;
-}
-//#endregion
-//#region ---------------------------------- Eventlyssnare ------------------------------------------------*/
-
-bookListContainer?.addEventListener("click", (e) => {
-  const target = e.target as HTMLElement;
-  const card = target.closest(".bookCard") as HTMLElement;
-  const hasActive = card.classList.contains("active");
-  if (!card) return;
-
-  card?.classList.remove("active");
-
-  if (!hasActive) {
-    card.classList.add("active");
-  }
-});
+renderBooks();
 
 btnOpenDialog.addEventListener("click", () => {
   dialog.showModal();
@@ -202,8 +189,12 @@ addForm.addEventListener("submit", (e) => {
   addForm.reset();
   dialog.close();
 });
-//#endregion
-//#region ---------------------------------- Rendering ----------------------------------------------------*/
 
-renderBooks();
-//#endregion
+function findNextBookID(): number {
+  let _high = 1;
+  for (let id of inventoryBooks) {
+    _high = Number(id["id"]) >= _high ? Number(id["id"]) + 1 : _high;
+  }
+  return _high;
+}
+*/

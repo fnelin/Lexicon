@@ -35,12 +35,15 @@
                             </div>
                         </label>
                     </section>
-                    <label><span>ISBN</span><input type="text" id="txtISBN" required></label>
+                    <label><span>ISBN</span><input type="text" id="txtISBN" type="number" pattern="[0-9]+"
+                            required></label>
                 </section>
                 <section class="frmAddInformation">
                     <h3>Information Författare</h3>
                     <label><span>Namn</span><input type="text" id="txtAuthorName" required></label>
-                    <label><span>Född</span><input type="text" id="txtAuthorBorn" required></label>
+                    <label><span>Född <span class="authorBorn">(ÅÅÅÅ) </span></span><input type="text"
+                            id="txtAuthorBorn" min="1800" max="2026" maxlength="4" pattern="[0-9]+" type="number"
+                            required></label>
                     <label><span>Bild</span><input type="text" id="txtAuthorPic"></label>
                 </section>
                 <button type="submit" class="btn">Lägg till</button>

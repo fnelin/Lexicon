@@ -1,7 +1,5 @@
 "use strict";
-//#region ---------------------------------- Interfaces/Typer ---------------------------------------------*/
-//#endregion
-//#region ---------------------------------- Mock data ----------------------------------------------------*/
+//Interfaces/Typer
 const inventoryBooks = [
     {
         id: 1,
@@ -41,8 +39,6 @@ const inventoryBooks = [
         coverURL: "https://image.bokus.com/images/9789170028052_200x_pestens-tid_storpocket",
     },
 ];
-//#endregion
-//#region ---------------------------------- Deklarationer av konstanter ----------------------------------*/
 const bookListContainer = document.querySelector("#bookListContainer");
 const dialog = document.querySelector("#add-book-dialog");
 const btnOpenDialog = document.querySelector("#open-modal-btn");
@@ -56,8 +52,6 @@ const strAuthorName = document.querySelector("#txtAuthorName");
 const strAuthorBorn = document.querySelector("#txtAuthorBorn");
 const strAuthorPicture = document.querySelector("#txtAuthorPic");
 const radioIsTranslation = document.getElementsByName("rdoIsTranslation");
-//#endregion
-//#region ---------------------------------- Funktioner ---------------------------------------------------*/
 function renderBooks() {
     bookListContainer?.replaceChildren();
     inventoryBooks.forEach((book) => {
@@ -81,11 +75,19 @@ function renderBooks() {
         divAuthor.append(spanAuthorInformation);
         spanAuthorInformation.append(skapaHTMLElement("h3", book.author.name, "authorName"));
         spanAuthorInformation.append(skapaHTMLElement("span", book.author.born.toString(), "authorBorn"));
-        articleCard.dataset.id = book.id.toString();
+        articleCard.addEventListener("click", () => {
+            const currentActive = document.querySelector(".bookCard.active");
+            const hasActive = articleCard.classList.contains("active");
+            currentActive?.classList.remove("active");
+            if (!hasActive) {
+                articleCard.classList.add("active");
+            }
+        });
         bookListContainer?.append(articleCard);
     });
 }
 function skapaHTMLElement(e, content, classCSS, idCSS) {
+    /*Slutresultat en blandning av båda ovanstående med hjälp av instanceof.*/
     const el = e === "img" ? document.createElement(e) : document.createElement(e);
     if (el instanceof HTMLImageElement) {
         el.src = content;
@@ -97,26 +99,7 @@ function skapaHTMLElement(e, content, classCSS, idCSS) {
     el.className = classCSS;
     return el;
 }
-function findNextBookID() {
-    let _high = 1;
-    for (let id of inventoryBooks) {
-        _high = Number(id["id"]) >= _high ? Number(id["id"]) + 1 : _high;
-    }
-    return _high;
-}
-//#endregion
-//#region ---------------------------------- Eventlyssnare ------------------------------------------------*/
-bookListContainer?.addEventListener("click", (e) => {
-    const target = e.target;
-    const card = target.closest(".bookCard");
-    const hasActive = card.classList.contains("active");
-    if (!card)
-        return;
-    card?.classList.remove("active");
-    if (!hasActive) {
-        card.classList.add("active");
-    }
-});
+renderBooks();
 btnOpenDialog.addEventListener("click", () => {
     dialog.showModal();
 });
@@ -153,8 +136,11 @@ addForm.addEventListener("submit", (e) => {
     addForm.reset();
     dialog.close();
 });
-//#endregion
-//#region ---------------------------------- Rendering ----------------------------------------------------*/
-renderBooks();
-//#endregion
-//# sourceMappingURL=index_interface.js.map
+function findNextBookID() {
+    let _high = 1;
+    for (let id of inventoryBooks) {
+        _high = Number(id["id"]) >= _high ? Number(id["id"]) + 1 : _high;
+    }
+    return _high;
+}
+//# sourceMappingURL=index_interface%20copy.js.map
