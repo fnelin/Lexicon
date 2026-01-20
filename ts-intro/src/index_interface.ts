@@ -1,4 +1,4 @@
-//#region ---------------------------------- Interfaces/Typer ---------------------------------------------*/
+//#region ------------------------------ Interfaces/Typer ---------------------------------------------*/
 
 interface Book {
   id: number;
@@ -18,7 +18,7 @@ interface Author {
 
 type bookStatus = `Order` | `Wishlist`;
 //#endregion
-//#region ---------------------------------- Mock data ----------------------------------------------------*/
+//#region ------------------------------ Mock data ----------------------------------------------------*/
 const inventoryBooks: Book[] = [
   {
     id: 1,
@@ -60,11 +60,13 @@ const inventoryBooks: Book[] = [
   },
 ];
 //#endregion
-//#region ---------------------------------- Deklarationer av konstanter ----------------------------------*/
+//#region ------------------------------ Deklarationer av globala konstanter ----------------------------------*/
 const bookListContainer = document.querySelector("#bookListContainer");
 const dialog = document.querySelector("#add-book-dialog") as HTMLDialogElement;
 const btnOpenDialog = document.querySelector("#open-modal-btn") as HTMLButtonElement;
 const btnCloseDialog = document.querySelector("#close-modal-btn") as HTMLButtonElement;
+const btnSave = document.querySelector("#saveLocalStorage") as HTMLButtonElement;
+const btnLoad = document.querySelector("#loadLocalStorage") as HTMLButtonElement;
 const addForm = document.querySelector("#frmAddBook") as HTMLFormElement;
 const strBookName = document.querySelector("#txtBookName") as HTMLInputElement;
 const strBookCover = document.querySelector("#txtCover") as HTMLInputElement;
@@ -75,7 +77,23 @@ const strAuthorBorn = document.querySelector("#txtAuthorBorn") as HTMLInputEleme
 const strAuthorPicture = document.querySelector("#txtAuthorPic") as HTMLInputElement;
 const radioIsTranslation = document.getElementsByName("rdoIsTranslation");
 //#endregion
-//#region ---------------------------------- Funktioner ---------------------------------------------------*/
+//#region ------------------------------ Funktioner ---------------------------------------------------*/
+function saveToLocalStorage() {
+  const jsonSaveString = JSON.stringify(inventoryBooks);
+  localStorage.setItem("Books", jsonSaveString);
+}
+
+function loadFromLocalStorage() {
+  const storedBooks = localStorage.getItem("Books");
+  if (storedBooks) {
+    const parsedBooks = JSON.parse(storedBooks) as Book[];
+    inventoryBooks.length = 0;
+    inventoryBooks.push(...parsedBooks);
+    renderBooks();
+  }
+  console.log(inventoryBooks);
+}
+
 function renderBooks() {
   bookListContainer?.replaceChildren();
 
@@ -143,19 +161,29 @@ function findNextBookID(): number {
   return _high;
 }
 //#endregion
-//#region ---------------------------------- Eventlyssnare ------------------------------------------------*/
+//#region ------------------------------ Eventlyssnare ------------------------------------------------*/
 
 bookListContainer?.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
   const card = target.closest(".bookCard") as HTMLElement;
-  const hasActive = card.classList.contains("active");
   if (!card) return;
 
-  card?.classList.remove("active");
+  const currentActive = document.querySelector(".bookCard.active");
+  const hasActive = card.classList.contains("active");
+
+  currentActive?.classList.remove("active");
 
   if (!hasActive) {
     card.classList.add("active");
   }
+});
+
+btnSave.addEventListener("click", () => {
+  saveToLocalStorage();
+});
+
+btnLoad.addEventListener("click", () => {
+  loadFromLocalStorage();
 });
 
 btnOpenDialog.addEventListener("click", () => {
@@ -203,7 +231,7 @@ addForm.addEventListener("submit", (e) => {
   dialog.close();
 });
 //#endregion
-//#region ---------------------------------- Rendering ----------------------------------------------------*/
+//#region ------------------------------ Rendering ----------------------------------------------------*/
 
 renderBooks();
 //#endregion

@@ -1,7 +1,7 @@
 "use strict";
-//#region ---------------------------------- Interfaces/Typer ---------------------------------------------*/
+//#region ------------------------------ Interfaces/Typer ---------------------------------------------*/
 //#endregion
-//#region ---------------------------------- Mock data ----------------------------------------------------*/
+//#region ------------------------------ Mock data ----------------------------------------------------*/
 const inventoryBooks = [
     {
         id: 1,
@@ -42,11 +42,13 @@ const inventoryBooks = [
     },
 ];
 //#endregion
-//#region ---------------------------------- Deklarationer av konstanter ----------------------------------*/
+//#region ------------------------------ Deklarationer av globala konstanter ----------------------------------*/
 const bookListContainer = document.querySelector("#bookListContainer");
 const dialog = document.querySelector("#add-book-dialog");
 const btnOpenDialog = document.querySelector("#open-modal-btn");
 const btnCloseDialog = document.querySelector("#close-modal-btn");
+const btnSave = document.querySelector("#saveLocalStorage");
+const btnLoad = document.querySelector("#loadLocalStorage");
 const addForm = document.querySelector("#frmAddBook");
 const strBookName = document.querySelector("#txtBookName");
 const strBookCover = document.querySelector("#txtCover");
@@ -57,7 +59,21 @@ const strAuthorBorn = document.querySelector("#txtAuthorBorn");
 const strAuthorPicture = document.querySelector("#txtAuthorPic");
 const radioIsTranslation = document.getElementsByName("rdoIsTranslation");
 //#endregion
-//#region ---------------------------------- Funktioner ---------------------------------------------------*/
+//#region ------------------------------ Funktioner ---------------------------------------------------*/
+function saveToLocalStorage() {
+    const jsonSaveString = JSON.stringify(inventoryBooks);
+    localStorage.setItem("Books", jsonSaveString);
+}
+function loadFromLocalStorage() {
+    const storedBooks = localStorage.getItem("Books");
+    if (storedBooks) {
+        const parsedBooks = JSON.parse(storedBooks);
+        inventoryBooks.length = 0;
+        inventoryBooks.push(...parsedBooks);
+        renderBooks();
+    }
+    console.log(inventoryBooks);
+}
 function renderBooks() {
     bookListContainer?.replaceChildren();
     inventoryBooks.forEach((book) => {
@@ -105,17 +121,24 @@ function findNextBookID() {
     return _high;
 }
 //#endregion
-//#region ---------------------------------- Eventlyssnare ------------------------------------------------*/
+//#region ------------------------------ Eventlyssnare ------------------------------------------------*/
 bookListContainer?.addEventListener("click", (e) => {
     const target = e.target;
     const card = target.closest(".bookCard");
-    const hasActive = card.classList.contains("active");
     if (!card)
         return;
-    card?.classList.remove("active");
+    const currentActive = document.querySelector(".bookCard.active");
+    const hasActive = card.classList.contains("active");
+    currentActive?.classList.remove("active");
     if (!hasActive) {
         card.classList.add("active");
     }
+});
+btnSave.addEventListener("click", () => {
+    saveToLocalStorage();
+});
+btnLoad.addEventListener("click", () => {
+    loadFromLocalStorage();
 });
 btnOpenDialog.addEventListener("click", () => {
     dialog.showModal();
@@ -154,7 +177,7 @@ addForm.addEventListener("submit", (e) => {
     dialog.close();
 });
 //#endregion
-//#region ---------------------------------- Rendering ----------------------------------------------------*/
+//#region ------------------------------ Rendering ----------------------------------------------------*/
 renderBooks();
 //#endregion
 //# sourceMappingURL=index_interface.js.map

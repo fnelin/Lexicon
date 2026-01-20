@@ -232,6 +232,23 @@ img
     }
 }
 
+header
+{
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 1rem;
+    width: 80%;
+
+    >button
+    {
+        width: 20ex;
+        height: 4ex;
+        border-radius: 15px;
+    }
+
+}
+
 .translationRadio
 {
     display: flex;
