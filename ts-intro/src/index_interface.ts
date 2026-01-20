@@ -135,6 +135,10 @@ function renderBooks() {
     spanAuthorInformation.append(skapaHTMLElement("h3", book.author.name, "authorName"));
     spanAuthorInformation.append(skapaHTMLElement("span", book.author.born.toString(), "authorBorn"));
 
+    const adminActions = skapaHTMLElement("div", "", "adminActions hidden", "adminActions-" + book.ISBN);
+    adminActions.append(skapaHTMLElement("span", "✏️", "editAction"));
+    adminActions.append(skapaHTMLElement("span", "❌", "removeAction"));
+    articleCard.append(adminActions);
     articleCard.dataset.id = book.id.toString();
 
     bookListContainer?.append(articleCard);
@@ -168,13 +172,16 @@ bookListContainer?.addEventListener("click", (e) => {
   const card = target.closest(".bookCard") as HTMLElement;
   if (!card) return;
 
+  const admin = card.querySelector(".adminActions") as HTMLElement;
   const currentActive = document.querySelector(".bookCard.active");
   const hasActive = card.classList.contains("active");
 
   currentActive?.classList.remove("active");
+  admin.classList.add("hidden");
 
   if (!hasActive) {
     card.classList.add("active");
+    admin.classList.remove("hidden");
   }
 });
 
