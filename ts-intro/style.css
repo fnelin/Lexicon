@@ -77,7 +77,6 @@ a
 {
     display: flex;
     justify-content: space-around;
-    padding-bottom: 0.5rem;
 }
 
 .authorInformation
@@ -189,6 +188,7 @@ h3
         transition: ease-in-out 200ms;
         cursor: pointer;
     }
+
 }
 
 .bookCover,
@@ -240,6 +240,40 @@ img
         border: 2px solid hsl(120, 100%, 30%);
         background-color: hsl(120, 100%, 95%);
 
+    }
+
+}
+
+.editAction
+{
+    border: 2px solid #0000;
+    filter: grayscale(1);
+    padding: 1rem;
+    transition: 0.2s;
+
+    &:hover
+    {
+        filter: grayscale(0);
+        border: 2px solid hsl(55, 100%, 30%);
+        background-color: hsl(55, 100%, 95%);
+        transform: scale(1.2);
+    }
+}
+
+.removeAction
+{
+    border: 2px solid #0000;
+    filter: grayscale(1);
+    cursor: not-allowed;
+    padding: 1rem;
+    transition: 0.2s;
+
+    &:hover
+    {
+        filter: grayscale(0);
+        border: 2px solid hsl(0, 100%, 30%);
+        background-color: hsl(0, 100%, 95%);
+        transform: scale(1.2);
     }
 }
 

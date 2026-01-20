@@ -60,7 +60,7 @@ const inventoryBooks: Book[] = [
   },
 ];
 //#endregion
-//#region ------------------------------ Deklarationer av globala konstanter ----------------------------------*/
+//#region ------------------------------ Deklarationer av globala konstanter --------------------------*/
 const bookListContainer = document.querySelector("#bookListContainer");
 const dialog = document.querySelector("#add-book-dialog") as HTMLDialogElement;
 const btnOpenDialog = document.querySelector("#open-modal-btn") as HTMLButtonElement;
@@ -139,6 +139,7 @@ function renderBooks() {
     adminActions.append(skapaHTMLElement("span", "✏️", "editAction"));
     adminActions.append(skapaHTMLElement("span", "❌", "removeAction"));
     articleCard.append(adminActions);
+
     articleCard.dataset.id = book.id.toString();
 
     bookListContainer?.append(articleCard);
@@ -174,10 +175,20 @@ bookListContainer?.addEventListener("click", (e) => {
 
   const admin = card.querySelector(".adminActions") as HTMLElement;
   const currentActive = document.querySelector(".bookCard.active");
+  const currentAdmin = currentActive?.querySelector(".adminActions") as HTMLElement;
   const hasActive = card.classList.contains("active");
 
+  if (target.classList.contains("removeAction")) {
+    const removeID = Number(card.dataset.id);
+    const removeIndex = inventoryBooks.findIndex((b) => b.id === removeID);
+    inventoryBooks.splice(removeIndex, 1);
+
+    renderBooks();
+    return;
+  }
+
   currentActive?.classList.remove("active");
-  admin.classList.add("hidden");
+  currentAdmin?.classList.add("hidden");
 
   if (!hasActive) {
     card.classList.add("active");

@@ -42,7 +42,7 @@ const inventoryBooks = [
     },
 ];
 //#endregion
-//#region ------------------------------ Deklarationer av globala konstanter ----------------------------------*/
+//#region ------------------------------ Deklarationer av globala konstanter --------------------------*/
 const bookListContainer = document.querySelector("#bookListContainer");
 const dialog = document.querySelector("#add-book-dialog");
 const btnOpenDialog = document.querySelector("#open-modal-btn");
@@ -133,9 +133,17 @@ bookListContainer?.addEventListener("click", (e) => {
         return;
     const admin = card.querySelector(".adminActions");
     const currentActive = document.querySelector(".bookCard.active");
+    const currentAdmin = currentActive?.querySelector(".adminActions");
     const hasActive = card.classList.contains("active");
+    if (target.classList.contains("removeAction")) {
+        const removeID = Number(card.dataset.id);
+        const removeIndex = inventoryBooks.findIndex((b) => b.id === removeID);
+        inventoryBooks.splice(removeIndex, 1);
+        renderBooks();
+        return;
+    }
     currentActive?.classList.remove("active");
-    admin.classList.add("hidden");
+    currentAdmin?.classList.add("hidden");
     if (!hasActive) {
         card.classList.add("active");
         admin.classList.remove("hidden");
