@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Böcker</title>
         <link rel="stylesheet" href="./style.css">
-        <script type="module" src="./dist/index_interface.js" defer></script>
+        <script type="module" src="./dist/index.js" defer></script>
         <link
             href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
             rel="stylesheet">
@@ -25,24 +25,24 @@
             <form id="frmAddBook" class="frmAddBook">
                 <section class="frmAddInformation">
                     <h3>Information Bok</h3>
-                    <label><span>Namn</span><input type="text" id="txtBookName" required></label>
+                    <label><span>Namn<sup>*</sup></span><input type="text" id="txtBookName" required></label>
                     <label><span>Omslag</span><input type="text" id="txtCover"></label>
-                    <label><span>Språk</span><input type="text" id="txtLanguage" required></label>
+                    <label><span>Språk<sup>*</sup></span><input type="text" id="txtLanguage" required></label>
                     <section class="translationRadio">
-                        <label><span>Översättning</span>
+                        <label><span>Översättning<sup>*</sup></span>
                             <div class="translationRadioChoices">
                                 <input type="radio" name="rdoIsTranslation" value="true">Ja
                                 <input type="radio" name="rdoIsTranslation" value="false" checked>Nej
                             </div>
                         </label>
                     </section>
-                    <label><span>ISBN</span><input type="text" id="txtISBN" type="number" pattern="[0-9]+"
-                            required></label>
+                    <label><span>ISBN<sup>*</sup></span><input type="text" id="txtISBN" type="number"
+                            pattern="^97[89]\d{10}$" required></label>
                 </section>
                 <section class="frmAddInformation">
                     <h3>Information Författare</h3>
-                    <label><span>Namn</span><input type="text" id="txtAuthorName" required></label>
-                    <label><span>Född <span class="authorBorn">(ÅÅÅÅ) </span></span><input type="text"
+                    <label><span>Namn<sup>*</sup></span><input type="text" id="txtAuthorName" required></label>
+                    <label><span>Född<sup>*</sup> <span class="authorBorn">(ÅÅÅÅ) </span></span><input type="text"
                             id="txtAuthorBorn" min="1800" max="2026" maxlength="4" pattern="[0-9]+" type="number"
                             required></label>
                     <label><span>Bild</span><input type="text" id="txtAuthorPic"></label>

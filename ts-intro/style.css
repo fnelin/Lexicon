@@ -92,7 +92,7 @@ a
     font-size: large;
     width: 75%;
     padding: 0.5rem;
-    border-radius: 10px;
+    border-radius: 5px;
     align-self: center;
     justify-self: center;
     border: 1px solid black;
@@ -257,6 +257,7 @@ img
         border: 2px solid hsl(55, 100%, 30%);
         background-color: hsl(55, 100%, 95%);
         transform: scale(1.2);
+        cursor: not-allowed;
     }
 }
 
@@ -264,7 +265,7 @@ img
 {
     border: 2px solid #0000;
     filter: grayscale(1);
-    cursor: not-allowed;
+
     padding: 1rem;
     transition: 0.2s;
 
@@ -289,9 +290,21 @@ header
     {
         width: 20ex;
         height: 4ex;
-        border-radius: 15px;
+
     }
 
+}
+
+button
+{
+    cursor: pointer;
+    border-radius: 5px;
+
+    &:hover
+    {
+        transform: scale(1.05, 1.05);
+        box-shadow: 1px 2px 2px lightgrey;
+    }
 }
 
 .translationRadio
@@ -310,4 +323,10 @@ header
 {
     margin: 0 auto;
     align-self: center;
+}
+
+sup
+{
+    color: red;
+    vertical-align: top;
 }

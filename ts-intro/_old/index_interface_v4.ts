@@ -1,4 +1,5 @@
-//#region ------------------------------ Interfaces/Typer ---------------------------------------------*/
+/*
+//#region ------------------------------ Interfaces/Typer ---------------------------------------------
 
 interface Book {
   id: number;
@@ -18,7 +19,7 @@ interface Author {
 
 type bookStatus = `Order` | `Wishlist`;
 //#endregion
-//#region ------------------------------ Mock data ----------------------------------------------------*/
+//#region ------------------------------ Mock data ----------------------------------------------------
 const inventoryBooks: Book[] = [
   {
     id: 1,
@@ -60,7 +61,7 @@ const inventoryBooks: Book[] = [
   },
 ];
 //#endregion
-//#region ------------------------------ Deklarationer av globala konstanter --------------------------*/
+//#region ------------------------------ Deklarationer av globala konstanter --------------------------
 const bookListContainer = document.querySelector("#bookListContainer");
 const dialog = document.querySelector("#add-book-dialog") as HTMLDialogElement;
 const btnOpenDialog = document.querySelector("#open-modal-btn") as HTMLButtonElement;
@@ -77,7 +78,7 @@ const strAuthorBorn = document.querySelector("#txtAuthorBorn") as HTMLInputEleme
 const strAuthorPicture = document.querySelector("#txtAuthorPic") as HTMLInputElement;
 const radioIsTranslation = document.getElementsByName("rdoIsTranslation");
 //#endregion
-//#region ------------------------------ Funktioner ---------------------------------------------------*/
+//#region ------------------------------ Funktioner ---------------------------------------------------
 function saveToLocalStorage() {
   const jsonSaveString = JSON.stringify(inventoryBooks);
   localStorage.setItem("Books", jsonSaveString);
@@ -166,7 +167,7 @@ function findNextBookID(): number {
   return _high;
 }
 //#endregion
-//#region ------------------------------ Eventlyssnare ------------------------------------------------*/
+//#region ------------------------------ Eventlyssnare ------------------------------------------------
 
 bookListContainer?.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
@@ -249,7 +250,9 @@ addForm.addEventListener("submit", (e) => {
   dialog.close();
 });
 //#endregion
-//#region ------------------------------ Rendering ----------------------------------------------------*/
+//#region ------------------------------ Rendering ----------------------------------------------------
 
 renderBooks();
 //#endregion
+
+*/
