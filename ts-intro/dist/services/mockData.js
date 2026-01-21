@@ -1,0 +1,42 @@
+//#region ------------------------------ Mock data ----------------------------------------------------*/
+export const inventoryBooks = [
+    {
+        id: 1,
+        title: "Color of Magic",
+        ISBN: 9780552152921,
+        language: "English",
+        isTranslation: false,
+        author: {
+            name: "Terry Pratchett",
+            born: 1948,
+        },
+        coverURL: "https://www.adlibris.com/images/9780861403240/the-colour-of-magic.jpg",
+    },
+    {
+        id: 2,
+        title: "Väninnorna på Nordiska Kompaniet",
+        ISBN: 9789177718512,
+        language: "Svenska",
+        isTranslation: false,
+        author: {
+            name: "Ruth Kvarnström-Jones",
+            born: 1962,
+        },
+        coverURL: "https://www.adlibris.com/images/9789177718512/vaninnorna-pa-nordiska-kompaniet.jpg",
+    },
+    {
+        id: 3,
+        title: "Pestens tid",
+        ISBN: 9780552152921,
+        language: "Svenska",
+        isTranslation: true,
+        author: {
+            name: "Stephen King",
+            born: 1947,
+            photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ40L_f3Zij0I5RT-wtt0Nozc4w8Edkp6Gq9Rg5Xskx3OlnkZ3M83eEuWC1-sEWL7cmr4UZwzA6UGbgPaxrjHj5oUwRWIbI86zgiRhxa6Sv&s=10",
+        },
+        coverURL: "https://image.bokus.com/images/9789170028052_200x_pestens-tid_storpocket",
+    },
+];
+//#endregion
+//# sourceMappingURL=mockData.js.map
