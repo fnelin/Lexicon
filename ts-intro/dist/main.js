@@ -42,8 +42,11 @@ btnSave.addEventListener("click", () => {
     saveToLocalStorage(inventoryBooks);
 });
 btnLoad.addEventListener("click", () => {
-    inventoryBooks.length = 0;
-    inventoryBooks.push(...loadFromLocalStorage());
+    const loadArray = loadFromLocalStorage();
+    if (loadArray.length > 0) {
+        inventoryBooks.length = 0;
+        inventoryBooks.push(...loadArray);
+    }
     renderBooks(inventoryBooks, bookListContainer);
 });
 btnOpenDialog.addEventListener("click", () => {

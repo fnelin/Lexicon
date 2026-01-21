@@ -108,7 +108,7 @@ a
     width: 30%;
     min-width: 15rem;
     padding-inline: 1rem;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
     scroll-snap-stop: always;
 
     &:hover
@@ -158,6 +158,11 @@ a
     scroll-snap-type: x mandatory;
     anchor-name: --my-carousel;
     scroll-marker-group: before;
+
+    @media (prefers-reduced-motion: no-preference)
+    {
+        scroll-behavior: smooth;
+    }
 }
 
 .bookListContainer::scroll-marker-group
@@ -353,7 +358,7 @@ main
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    margin: 0 auto;
+    justify-self: right;
 
     >button
     {
@@ -414,4 +419,10 @@ sup
 {
     color: red;
     vertical-align: top;
+}
+
+.authorPicture
+{
+    max-height: 6rem;
+    object-fit: contain;
 }
