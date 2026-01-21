@@ -1,5 +1,3 @@
-//#region ------------------------------ Interfaces/Typer ---------------------------------------------*/
-
 export interface Book {
   id: number;
   title: string;
@@ -17,4 +15,3 @@ export interface Author {
 }
 
 export type bookStatus = `Order` | `Wishlist`;
-//#endregion

@@ -76,7 +76,6 @@ addForm.addEventListener("submit", (e) => {
   inventoryBooks.push(newBook);
 
   renderBooks(inventoryBooks, bookListContainer);
-
   addForm.reset();
   dialog.close();
 });

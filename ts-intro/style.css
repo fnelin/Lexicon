@@ -250,18 +250,6 @@ label:has(span)
     gap: 1rem;
 }
 
-main
-{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    font-family: "Inter", sans-serif;
-    min-height: 100vh;
-}
-
 .bookAuthor
 {
     align-self: end;
@@ -349,21 +337,29 @@ img
     }
 }
 
-header
+main
+{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    width: 100%;
+    align-items: center;
+    font-family: "Inter", sans-serif;
+    min-height: 100vh;
+}
+
+.commandActions
 {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    gap: 2rem;
     margin: 0 auto;
-    margin-top: 1rem;
-    width: 80%;
 
     >button
     {
         width: 20ex;
         height: 4ex;
-
     }
-
 }
 
 .active

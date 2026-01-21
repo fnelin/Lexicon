@@ -1,6 +1,5 @@
 const SAVE_NAME = "Books";
 import { Book } from "../models/book.js";
-import { Author } from "../models/book.js";
 
 export function saveToLocalStorage(inventoryBooks: Book[]) {
   const jsonSaveString = JSON.stringify(inventoryBooks);
