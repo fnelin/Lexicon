@@ -1,5 +1,4 @@
-import { Book } from "../models/book.js";
-import { Author } from "../models/book.js";
+import { Book, Author } from "../models/book.js";
 import { findNextBookID } from "../utils/utils.js";
 
 export function createBook(inventoryBooks: Book[]): Book {

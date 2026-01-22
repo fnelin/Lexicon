@@ -1,6 +1,5 @@
 import { inventoryBooks } from "./services/mockData.js";
-import { saveToLocalStorage } from "./utils/dataStorage.js";
-import { loadFromLocalStorage } from "./utils/dataStorage.js";
+import { loadFromJsonFile, saveToLocalStorage } from "./utils/dataStorage.js";
 import { validateInput } from "./utils/utils.js";
 import { renderBooks } from "./components/renderPage.js";
 import { createBook } from "./utils/createBook.js";
@@ -41,8 +40,10 @@ bookListContainer?.addEventListener("click", (e) => {
 btnSave.addEventListener("click", () => {
     saveToLocalStorage(inventoryBooks);
 });
-btnLoad.addEventListener("click", () => {
-    const loadArray = loadFromLocalStorage();
+//btnLoad.addEventListener("click" () => {
+//const loadArray: Book[] = loadFromLocalStorage();
+btnLoad.addEventListener("click", async () => {
+    const loadArray = await loadFromJsonFile();
     if (loadArray.length > 0) {
         inventoryBooks.length = 0;
         inventoryBooks.push(...loadArray);

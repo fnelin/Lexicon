@@ -2,6 +2,7 @@
 
 # Folders in repo
 .old/
+_old/
 
 # Windows thumbnail cache files
 Thumbs.db
