@@ -1,3 +1,4 @@
+//import { writeFileSync } from "fs";
 const SAVE_NAME = "Books";
 const JSON_FILE = "../data/books.json";
 export function saveToLocalStorage(inventoryBooks) {

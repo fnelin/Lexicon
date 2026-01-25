@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CSS Battle 52</title>
+    </head>
+    <style>
+        * {
+            margin: 0px;
+        }
+
+        body {
+            background: #191919;
+            display: grid;
+            place-content: center
+        }
+
+        div {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            width: 200px;
+            height: 200px;
+            background: #191919;
+            align-items: end;
+        }
+
+        p {
+            display: block;
+            position: relative;
+            width: 100px;
+            height: 50px;
+            border-radius: 100px 100px 0 0;
+
+            &:nth-child(1),
+            &:nth-child(4) {
+                background: #F9E492;
+            }
+
+            &:nth-child(2),
+            &:nth-child(3) {
+                top: -25px;
+                background: #4F77FF;
+            }
+
+            &:nth-child(2) {
+                rotate: 90deg;
+                right: 25px;
+            }
+
+            &:nth-child(3) {
+                rotate: 270deg;
+                left: 25px;
+            }
+
+            &:nth-child(4) {
+                rotate: 180deg;
+                top: -50px;
+            }
+        }
+    </style>
+
+    <body>
+        <div>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+        </div>
+    </body>
+
+</html>
