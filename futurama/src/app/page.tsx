@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="bg-linear-145 from-blue-900 from-75% via-blue-700 via-85% to-sky-500 to-99%">
-      <section className="px-4 grid lg:grid-cols-2">
-        <div className="my-2">
+    <main className="py-2 bg-linear-145 from-blue-900 from-75% via-blue-700 via-85% to-sky-500 to-99%">
+      <article className="px-6 my-2 grid justify-center lg:grid-cols-2">
+        <div className="px-2 my-2">
           <span className="text-2xl text-neutral-50">About time!</span>
           <h1 className="text-5xl leading-tight text-pretty font-bold text-neutral-100">
             Futurama <span className="line-through">might be</span> is back!
@@ -15,12 +15,12 @@ export default function Home() {
           alt="" 
           width={1920} height={1080} 
           loading="eager"
-          className="border-6 border-amber-50 rounded-md  max-w-9/10"
+          className="border-6 border-amber-50 rounded-md"
         />
       
-      </section>
-      <section>Card...</section>
+      </article>
+      <hr className="text-gray-100"/>
+      <section className="text-gray-100">Card...</section>
     </main>
-
   );
 }
