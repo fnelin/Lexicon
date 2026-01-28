@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <span>
+        <div></div>
+    </span>
+    <style>
+        * {
+            margin: 0px;
+        }
+
+        body {
+            background: #B6EBE7;
+            display: grid;
+            align-items: center;
+            margin-left: 10%;
+            height: 100vh;
+        }
+
+        div {
+            width: 30px;
+            height: 120px;
+            background: #5E2BB7;
+        }
+
+        div:before,
+        div:after {
+            content: '';
+            display: block;
+            position: relative;
+            width: 40px;
+            height: 20px;
+            top: -50px;
+            background: #B6EBE7;
+            border: 30px solid #5E2BB7;
+        }
+
+        div:before {
+            left: 0;
+            border-radius: 60px 60px 0 0;
+            border-color: #9382E4;
+            border-bottom: 0px;
+        }
+
+        div:after {
+            left: 70px;
+            border-radius: 0 0 60px 60px;
+            border-top: 0px;
+        }
+
+        span {
+            -webkit-box-reflect: left -380px;
+        }
+    </style>
+
+</html>
