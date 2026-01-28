@@ -6,15 +6,17 @@ import imgDeadStamp from "../../../public/dead_stamp.png";
 export default function CardGrid({characters}: {characters: Character[]}){
 
     return(
-      <section className="container mx-auto px-4 py-16 space-y-4 ">
+      <section className="container mx-auto px-4 py-4 space-y-4">
         <h2 className="text-2xl font-bold font-josefin text-center">Characters</h2>
-        <ul className="grid grid-cols-[repeat(auto-fill,minmax(20ch,1fr))] gap-2">
+        <ul className="grid grid-cols-[repeat(auto-fill,minmax(20ch,1fr))] gap-2 ">
           {
           characters.map((c)=>(
-          <li key={c.id}>
-            <article className="relative">
+          <li key={c.id} className="p-2 border rounded-t-md overflow-hidden duration-500 ease-in-out bg-blue-700
+                                    hover:-translate-1.5 hover:shadow-2xl hover:bg-blue-700/80">
+            <article className="relative cursor-pointer">
               <h3 className="absolute bottom-0 left-0 right-0 text-center font-bold font-josefin
-                     px-6 py-1 backdrop-blur-sm mask-t-from-80% bg-gray-900/60 text-gray-100">
+                     px-6 py-1 backdrop-blur-sm bg-gray-900/60
+                      text-gray-100">
                       {c.name}
                 </h3>
               <Image src={c.image ?? imgDefault} alt="" width="200" height="200"
