@@ -1,9 +1,12 @@
 import Image from "next/image";
 import imgHeroFuturama from "../../public/futurama_hero.jpeg";
+import imgDefault from "../../public/default.jpg";
+import dataCharacters from "@/app/data/characters.json";
 
 export default function Home() {
+  const characters = dataCharacters.items
   return (
-    <main className="">
+    <main className="transition-all duration-200">
       <article className="px-6 grid justify-center bg-linear-175 from-blue-900 from-15% via-blue-700 via-65% to-sky-500 to-99% lg:grid-cols-2">
         <div className="px-2 my-2 font-josefin">
           <span className="text-2xl text-neutral-50">About time!</span>
@@ -23,6 +26,22 @@ export default function Home() {
       </article>
       <hr className=""/>
       <section className="">Card...</section>
+      <hr className=""/>
+      <section className="mx-4">
+        <h2 className="text-2xl font-josefin">Characters</h2>
+        <ul className="grid grid-cols-[repeat(auto-fill,minmax(20ch,1fr))] gap-2">
+          {
+          characters.map((c)=>(
+          <li key={c.id}>
+            <article>
+              <h3 className="font-bold font-josefin">{c.name}</h3>
+              <Image src={c.image ?? imgDefault} alt="" width="200" height="200"></Image>
+            </article>
+          </li>
+          ))}
+        </ul>
+
+      </section>
     </main>
   );
 }
