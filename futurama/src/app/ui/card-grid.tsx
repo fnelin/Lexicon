@@ -24,7 +24,7 @@ export default function CardGrid({characters}: {characters: Character[]}){
               {
               c.status=="DEAD" && 
               <Image src={imgDeadStamp} alt="" width="100" height="100" 
-                     className="absolute top-0 left-0 bg-gray-900/40 rounded-br-2xl backdrop-blur-xs" />
+                     className="absolute -top-2 -left-4 bg-gray-900/40 rounded-br-2xl backdrop-blur-xs h-auto w-auto scale-75" />
               }
             </article>
           </li>

@@ -7,8 +7,10 @@ import dataCharacters from "@/app/data/characters.json";
 export default function Home() {
   const characters = dataCharacters.items
   return (
-    <main className="transition-all duration-200 scroll-smooth bg-gray-100">
-      <article className="px-6 grid justify-center bg-linear-175 from-blue-900 from-15% via-blue-700 via-65% to-sky-500 to-99% lg:grid-cols-2">
+    <main className="scroll-smooth bg-gray-100">
+      <article className="px-6 grid justify-center md:grid-cols-2 items-stretch
+                          bg-linear-175 from-blue-900 from-15% via-blue-700 via-65% to-sky-500 to-99% 
+                          ">
         <div className="px-2 my-2 font-josefin">
           <span className="text-2xl text-neutral-50">About time!</span>
           <h1 className="text-5xl leading-tight text-pretty font-bold text-neutral-100 font-geist">
@@ -21,7 +23,8 @@ export default function Home() {
           placeholder="blur"
           width={1920} height={1080} 
           loading="eager"
-          className="my-2 border-6 border-gray-100 rounded-md shadow-gray-400"
+          className="my-2 border-6 border-gray-100 rounded-md shadow-gray-400 
+                    object-cover object-top-right aspect-auto w-200"
         />
       
       </article>
