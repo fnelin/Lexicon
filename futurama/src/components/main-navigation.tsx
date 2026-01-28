@@ -1,8 +1,8 @@
 import Link from "next/link";
-import data from "@/app/data/mainMenu.json"
+import menuData from "@/app/data/mainMenu.json"
 
 const renderMenu = () => {
-  return data.map((item, index)=>
+  return menuData.map((item, index)=>
   <li key={index}>
     <Link className="hover:text-sky-700 transition-colors" href={item.href}>
     {item.title}

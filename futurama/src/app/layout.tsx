@@ -4,16 +4,16 @@ import "./globals.css";
 import MainNavigation from "@/components/main-navigation";
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
+  variable: "--font-geist_sans",
   subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+  variable: "--font-geist_mono",
   subsets: ["latin"],
 });
 const josefinSans = Josefin_Sans({
-  variable: "--font-josefin",
+  variable: "--font-josefin_sans",
   subsets: ["latin"],
 });
 
