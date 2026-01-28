@@ -12,7 +12,7 @@ const renderMenu = () => {
 
 export default function MainNavigation() {
   return (
-    <div className="flex items-center justify-around p-2 border-b sticky top-0 bg-neutral-100/60 backdrop-blur-sm font-bold">
+    <div className="flex items-center justify-around p-2 border-b sticky top-0 bg-neutral-100/60 backdrop-blur-sm font-bold z-50">
       <Link href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Futurama_1999_logo.svg" width="100" height="50"/></Link>
       <ul className="flex gap-8">
       {

@@ -1,7 +1,8 @@
 import Image from "next/image";
+import CardGrid from "./ui/card-grid"
 import imgHeroFuturama from "../../public/futurama_hero.jpeg";
-import imgDefault from "../../public/default.jpg";
 import dataCharacters from "@/app/data/characters.json";
+
 
 export default function Home() {
   const characters = dataCharacters.items
@@ -25,23 +26,9 @@ export default function Home() {
       
       </article>
       <hr className=""/>
-      <section className="">Card...</section>
-      <hr className=""/>
-      <section className="mx-4">
-        <h2 className="text-2xl font-josefin">Characters</h2>
-        <ul className="grid grid-cols-[repeat(auto-fill,minmax(20ch,1fr))] gap-2">
-          {
-          characters.map((c)=>(
-          <li key={c.id}>
-            <article>
-              <h3 className="font-bold font-josefin">{c.name}</h3>
-              <Image src={c.image ?? imgDefault} alt="" width="200" height="200"></Image>
-            </article>
-          </li>
-          ))}
-        </ul>
-
-      </section>
+              
+      <CardGrid characters={characters}  />
+    
     </main>
   );
 }
