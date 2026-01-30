@@ -15,7 +15,7 @@ export default function CardGrid({characters}: {characters: Character[]}){
       <ul className="grid grid-cols-[repeat(auto-fill,minmax(20ch,1fr))] gap-2 ">
         {
         characters.map((c)=>(
-        <li key={c.id} className="p-2 border rounded-t-md overflow-hidden duration-500 ease-in-out bg-blue-700
+        <li key={c.id} className="p-2 border rounded-t-2xl overflow-hidden duration-500 ease-in-out bg-blue-700
                                   hover:-translate-1.5 hover:shadow-2xl hover:bg-blue-700/80">
           <article className="relative">
             <Link href={`/character/${c.id}`} className="cursor-pointer" prefetch={false}>
@@ -25,7 +25,7 @@ export default function CardGrid({characters}: {characters: Character[]}){
                     {c.name}
             </h3>
             <Image src={c.image ?? imgDefault} alt="" width="200" height="200"
-                    className="w-full aspect-square object-cover object-top" />
+                    className="w-full aspect-square object-cover object-top rounded-t-xl" />
             {
             c.status=="DEAD" && 
             <Image src={imgDeadStamp} alt="" width="100" height="100" 
