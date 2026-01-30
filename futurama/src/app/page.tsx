@@ -1,6 +1,6 @@
 import Image from "next/image";
 import CardGrid from "./ui/card-grid"
-import imgHeroFuturama from "../../public/futurama_hero.jpeg";
+import imgHeroFuturama from "@/../public/futurama_hero.jpeg";
 import dataCharacters from "@/app/data/characters.json";
 
 
