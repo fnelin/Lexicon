@@ -4,11 +4,11 @@ import imgDefault from "@/../public/default.jpg";
 import imgDeadStamp from "@/../public/dead_stamp.png";
 
 
-export default function GridCard({id, name, imgStr, itemStatus}:{id:number, name:string, imgStr:string | null, itemStatus:string|null}){
+export default function GridCard({id, name, imgStr, itemStatus, page}:{id:number, name:string, imgStr:string | null, itemStatus:string|null, page:string}){
 
   return (
     <article className="relative">
-      <Link href={`/character/${id}`} className="cursor-pointer" prefetch={false}>
+      <Link href={`/${page.toLowerCase()}/${id}`} className="cursor-pointer" prefetch={false}>
       <h3 className="absolute bottom-0 left-0 right-0 text-center font-bold font-josefin
               px-6 py-1 backdrop-blur-sm bg-gray-900/60 text-gray-100">
               {name}

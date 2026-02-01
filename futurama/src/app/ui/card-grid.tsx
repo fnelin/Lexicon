@@ -13,7 +13,7 @@ export default function CardGrid({gridName, gridItems}: {gridName:string, gridIt
         <li key={gI.id} className="p-2 border rounded-t-2xl overflow-hidden duration-500 ease-in-out bg-blue-700
                                   hover:-translate-1.5 hover:shadow-2xl hover:bg-blue-700/80">
           
-          <GridCard id={gI.id} name={gI.name} imgStr={gI.image} itemStatus={gI.status}/>
+          <GridCard id={gI.id} name={gI.name} imgStr={gI.image} itemStatus={gI.status} page={gridName}/>
 
         </li>
         ))}

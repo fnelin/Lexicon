@@ -2,22 +2,22 @@ import Link from "next/link";
 import menuData from "@/app/data/mainMenu.json"
 
 const renderMenu = () => {
-  return menuData.map((item, index)=>
-  <li key={index}>
-    <Link className="hover:text-sky-700 transition-colors" href={item.href}>
-    {item.title}
-    </Link>
-  </li>)
+  return menuData.map((item, index) =>
+    <li key={index}>
+      <Link className="hover:text-sky-700 transition-colors" href={item.href}>
+        {item.title}
+      </Link>
+    </li>)
 }
 
 export default function MainNavigation() {
   return (
-    <div className="flex items-center justify-around p-2 border-b sticky top-0 bg-neutral-100/60 backdrop-blur-sm font-bold z-50">
-      <Link href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Futurama_1999_logo.svg" width="100" height="50"/></Link>
+    <div className="flex items-center justify-around p-2 border-b sticky top-0 bg-skyblue-100/60 backdrop-blur-sm font-bold z-50">
+      <Link href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Futurama_1999_logo.svg" width="100" height="50" /></Link>
       <ul className="flex gap-8">
-      {
-       renderMenu()
-      }
+        {
+          renderMenu()
+        }
       </ul>
     </div>
   );
