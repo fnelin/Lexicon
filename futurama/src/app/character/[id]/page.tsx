@@ -12,7 +12,8 @@ export default async function CharacterPage({params}: {params: Promise<{id: stri
 
     if(!character) notFound()
 
-    return(<main className="grid h-dvh place-items-center font-josefin text-gray-100
+    return(
+        <main className="grid h-dvh place-items-center font-josefin text-gray-100
         bg-linear-175 from-blue-900 from-15% via-blue-700 via-65% to-sky-500 to-99%
         ">
         <article className="grid grid-cols-2 gap-4">
@@ -38,5 +39,6 @@ export default async function CharacterPage({params}: {params: Promise<{id: stri
             </section>
         </article>
         <Link href="/" className="self-start p-4 border-4 border-transparent hover:border-gray-100 duration-200 text-5xl">Take me back</Link>
-    </main>)
+    </main> 
+    )   
 }

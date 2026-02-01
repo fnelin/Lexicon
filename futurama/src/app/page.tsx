@@ -9,7 +9,7 @@ export default function Home() {
     <main className="scroll-smooth bg-gray-100">
       <HeroBanner />
       <hr className=""/>
-      <CardGrid characters={characters}  />
+      <CardGrid gridName="Characters" gridItems={characters}  />
     </main>
   );
 }
