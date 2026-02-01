@@ -28,11 +28,13 @@ export default async function CharacterPage({params}: {params: Promise<{id: stri
             }
             </div>
             <section className="self-center">
-                <ul>
-                    <li><span>Name: </span><span>{ character.name }</span></li>
-                    <li><span>Gender: </span><span>{ capFirstLetter(character.gender) }</span></li>
-                    <li><span>Species: </span><span>{ capFirstLetter(character.species) }</span></li>
-                </ul>
+                <table>
+                    <tbody>
+                        <tr><td>Name:</td><td className="px-2">{ character.name }</td></tr>
+                        <tr><td>Gender:</td><td className="px-2">{ capFirstLetter(character.gender) }</td></tr>
+                        <tr><td>Species:</td><td className="px-2">{ capFirstLetter(character.species) }</td></tr>
+                    </tbody>
+                </table>
             </section>
         </article>
         <Link href="/" className="self-start p-4 border-4 border-transparent hover:border-gray-100 duration-200 text-5xl">Take me back</Link>
