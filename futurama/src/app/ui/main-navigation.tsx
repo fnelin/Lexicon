@@ -4,7 +4,7 @@ import menuData from "@/app/data/mainMenu.json"
 const renderMenu = () => {
   return menuData.map((item, index) =>
     <li key={index}>
-      <Link className="hover:text-sky-700 transition-colors" href={item.href}>
+      <Link className="hover:text-sky-700 transition-colors [-webkit-text-stroke:2px_rgba(255,255,255,0.5)]  [paint-order:stroke_fill]" href={item.href}>
         {item.title}
       </Link>
     </li>)
