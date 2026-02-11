@@ -3,7 +3,7 @@
 import { ITEMLIMITS } from "@/app/data/constants"
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-export default function LimitSelect() {
+export default function FormSelectors() {
 
     const searchParams = useSearchParams();
     const router = useRouter();

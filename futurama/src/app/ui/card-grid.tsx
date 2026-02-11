@@ -1,6 +1,6 @@
 import { GridItemBase } from "@/components/grid-items";
 import GridCard from "./cards";
-import LimitSelect from "./limit-select";
+import FormSelectors from "./form-selectors";
 
 
 export default function CardGrid({ gridName, gridItems }: { gridName: string, gridItems: GridItemBase[] }) {
@@ -8,7 +8,7 @@ export default function CardGrid({ gridName, gridItems }: { gridName: string, gr
   return (
     <section className="container mx-auto px-4 py-4 space-y-4">
       <h2 className="text-2xl font-bold font-josefin text-center">{gridName}</h2>
-      <LimitSelect />
+      <FormSelectors />
       <ul className="grid grid-cols-[repeat(auto-fill,minmax(20ch,1fr))] gap-2 ">
         {
           gridItems.map((gI) => (

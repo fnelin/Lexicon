@@ -4,9 +4,11 @@ import { GridItemBase } from "@/components/grid-items"
 import getData from "@/components/load-data"
 
 export default async function Home(params: PageProps<"/">) {
-  const { limit = "12" } = await params.searchParams
+  const { limit = "12" } = await params.searchParams;
   const limitNumber = limit;
-  const apiCharacters: GridItemBase[] = await getData(`https://futuramaapi.com/api/characters?size=${limitNumber}`);
+  const { sort = "asc" } = await params.searchParams;
+  const sortOrder = sort;
+  const apiCharacters: GridItemBase[] = await getData(`https://futuramaapi.com/api/characters?size=${limitNumber}&orderByDirection=${sortOrder}`);
 
   return (
     <main className="scroll-smooth bg-blue-50">
