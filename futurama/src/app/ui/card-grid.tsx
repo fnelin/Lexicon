@@ -9,6 +9,7 @@ export default function CardGrid({ gridName, gridItems }: { gridName: string, gr
     <section className="container mx-auto px-4 py-4 space-y-4">
       <h2 className="text-2xl font-bold font-josefin text-center">{gridName}</h2>
       <FormSelectors />
+
       <ul className="grid grid-cols-[repeat(auto-fill,minmax(20ch,1fr))] gap-2 ">
         {
           gridItems.map((gI) => (

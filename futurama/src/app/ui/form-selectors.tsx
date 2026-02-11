@@ -15,13 +15,13 @@ export default function FormSelectors() {
         const sourceName = event.target.name;
         const page = 1;
 
-        console.log(`Källa: ${sourceName}\nVärde: ${newValue}`);
         const params = new URLSearchParams(searchParams.toString());
         params.set(sourceName, newValue);
         params.set("page", page.toString());
 
         router.push(`${pathName}?${params.toString()}`)
     }
+
     return (
         <form className="">
             <label htmlFor="limit-select" className="p-1">Limit:</label>
