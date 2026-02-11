@@ -1,6 +1,6 @@
-import Link from "next/link"
 import { GridItemBase } from "@/components/grid-items";
 import GridCard from "./cards";
+import LimitSelect from "./limit-select";
 
 
 export default function CardGrid({ gridName, gridItems }: { gridName: string, gridItems: GridItemBase[] }) {
@@ -8,7 +8,7 @@ export default function CardGrid({ gridName, gridItems }: { gridName: string, gr
   return (
     <section className="container mx-auto px-4 py-4 space-y-4">
       <h2 className="text-2xl font-bold font-josefin text-center">{gridName}</h2>
-      <span className="">Limit:<Link href="./?limit=10" className="font-bold mr-2">10</Link><Link href="./?limit=20" className="font-bold">20</Link></span>
+      <LimitSelect />
       <ul className="grid grid-cols-[repeat(auto-fill,minmax(20ch,1fr))] gap-2 ">
         {
           gridItems.map((gI) => (
