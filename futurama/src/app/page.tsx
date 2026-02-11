@@ -8,13 +8,17 @@ export default async function Home(params: PageProps<"/">) {
   const limitNumber = limit;
   const { sort = "asc" } = await params.searchParams;
   const sortOrder = sort;
-  const apiCharacters: GridItemBase[] = await getData(`https://futuramaapi.com/api/characters?size=${limitNumber}&orderByDirection=${sortOrder}`);
+  const characters: GridItemBase[] =
+    await getData(`https://futuramaapi.com/api/characters?size=${limitNumber}&orderByDirection=${sortOrder}`);
 
   return (
-    <main className="scroll-smooth bg-blue-50">
+    <main
+      className="scroll-smooth bg-blue-50">
       <HeroBanner />
       <hr className="" />
-      <CardGrid gridName="Characters" gridItems={apiCharacters} />
+      <CardGrid
+        gridName="Characters"
+        gridItems={characters} />
     </main >
   );
 }
