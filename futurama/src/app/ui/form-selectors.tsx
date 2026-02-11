@@ -13,11 +13,11 @@ export default function FormSelectors() {
 
         const newValue = event.target.value;
         const sourceName = event.target.name;
-        const page = 1;
+        const page = "1";
 
         const params = new URLSearchParams(searchParams.toString());
         params.set(sourceName, newValue);
-        params.set("page", page.toString());
+        params.set("page", page);
 
         router.push(`${pathName}?${params.toString()}`)
     }

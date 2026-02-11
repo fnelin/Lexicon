@@ -8,8 +8,7 @@ export default async function Home(params: PageProps<"/">) {
   const limitNumber = limit;
   const { sort = "asc" } = await params.searchParams;
   const sortOrder = sort;
-  const data = await getData(`https://futuramaapi.com/api/characters?size=${limitNumber}&orderByDirection=${sortOrder}`);
-  const apiCharacters: GridItemBase[] = data.items;
+  const apiCharacters: GridItemBase[] = await getData(`https://futuramaapi.com/api/characters?size=${limitNumber}&orderByDirection=${sortOrder}`);
 
   return (
     <main className="scroll-smooth bg-blue-50">

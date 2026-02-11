@@ -11,8 +11,7 @@ import { Character } from "@/types/futurama";
 export default async function CharacterPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params
 
-    const data = await getData(`https://futuramaapi.com/api/characters/${id}`);
-    const character: Character = data;
+    const character: Character = await getData(`https://futuramaapi.com/api/characters/${id}`);
 
 
     if (!character) notFound()

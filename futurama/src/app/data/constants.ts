@@ -1,1 +1,1 @@
-export const ITEMLIMITS = ["10","20","25","30"]
+export const ITEMLIMITS = ["10","25","30","50"]
