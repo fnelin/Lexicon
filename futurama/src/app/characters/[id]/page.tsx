@@ -35,28 +35,26 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
                     }
                 </div>
                 <section className="self-center">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Name:</td>
-                                <td className="px-2">
-                                    {character.name}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Gender:</td>
-                                <td className="px-2">
-                                    {capFirstLetter(character.gender)}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Species:</td>
-                                <td className="px-2">
-                                    {capFirstLetter(character.species)}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <table><tbody>
+                        <tr>
+                            <td>Name:</td>
+                            <td className="px-2">
+                                {character.name}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Gender:</td>
+                            <td className="px-2">
+                                {capFirstLetter(character.gender)}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Species:</td>
+                            <td className="px-2">
+                                {capFirstLetter(character.species)}
+                            </td>
+                        </tr>
+                    </tbody></table>
                 </section>
             </article>
             <Link

@@ -7,7 +7,7 @@ export default function CardGrid({ gridName, gridItems }: { gridName: string, gr
 
   return (
     <section className="container mx-auto px-4 py-4 space-y-4">
-      <h2 className="text-2xl font-bold font-josefin text-center">
+      <h2 className="text-4xl font-bold font-josefin text-center mb-1">
         {gridName}
       </h2>
 
@@ -19,8 +19,8 @@ export default function CardGrid({ gridName, gridItems }: { gridName: string, gr
           (
             <li key={gI.id}
               className="p-2 border rounded-t-2xl overflow-hidden duration-500 
-                ease-in-out bg-blue-700 hover:-translate-1.5 hover:shadow-2xl 
-                hover:bg-blue-700/80">
+                  ease-in-out bg-blue-700 hover:-translate-1.5 hover:shadow-2xl 
+                  hover:bg-blue-700/80">
 
               <GridCard
                 id={gI.id}
