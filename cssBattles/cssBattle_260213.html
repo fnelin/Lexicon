@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <div a>
+        <p></p>
+    </div>
+    <div b></div>
+    <div b></div>
+    <style>
+        body {
+            background: #2F434E;
+            align-content: center;
+        }
+
+        div {
+            position: relative;
+            left: 107px;
+        }
+
+        p {
+            margin: 0;
+            width: 70;
+            height: 220px;
+            background: #2F434E;
+            justify-self: right
+        }
+
+        [a] {
+            width: 120px;
+            height: 220px;
+            background: #0098D1;
+            grid-row: span 2;
+        }
+
+        [b] {
+            position: relative;
+            width: 40px;
+            aspect-ratio: 1;
+            background: #2F434E;
+            border-radius: 50%;
+            border: 30px solid #0098D1;
+            left: 47;
+            z-index: -1;
+
+            &:nth-child(3) {
+                top: 10px;
+            }
+        }
+    </style>
+
+</html>
