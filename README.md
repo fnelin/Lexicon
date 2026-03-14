@@ -9,7 +9,7 @@ The course in itself focus has a wide variety of technologies for creating moder
 + React: Next.js, SPA development, component architecture, state management, routing, forms, and commonly used React libraries
 + Not part of course but I dived into ORMs such as Prisma and Drizzler with SQLite & PostgreSQL
 ## 🎪 Showcase
-As a student you're tasked with creating a showcase portfolio.
+As a student you're tasked with creating a showcase portfolio. This repo is acting as a file-upload safekeep. For full projects and showcases the below repos are better suited.
 + [Planned planthood](https://github.com/fnelin/Planned-Planthood) An excersise in HTML & CSS without any scripting technologies.
 + [Reviews and thoughts](https://github.com/fnelin/portfolioFE) A personal two week project diving into semantic HTML, tailwind, typescript, nextjs, prisma and SQLite/postgreSQL: 
 
