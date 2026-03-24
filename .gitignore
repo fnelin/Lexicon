@@ -3,6 +3,11 @@
 # Folders in repo
 .old/
 _old/
+ovning-git-github/
+learnbranches/
+g6-agilt-projekt/
+projekt-agila-metoder-g6/
+node_modules/
 
 # Windows thumbnail cache files
 Thumbs.db
