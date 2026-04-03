@@ -1,4 +1,4 @@
-# 💼 Frontend development
+# 💼 Frontend development with a sprinkle of backending just because
 ### ❔ About Lexicon Frontend development crash course
 The Lexicon Frontend dev crash course is a hands-on program designed to prepare for modern Frontend development roles. The training spans the full development lifecycle, from foundational HTML and CSS to building advanced applications with TypeScript, Node.js, JavaScript and React. 
 ### 🔍 Key areas of focus:
