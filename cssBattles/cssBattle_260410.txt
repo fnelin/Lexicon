@@ -1,0 +1,1 @@
+<div><p><p a><p a b><p c><style>body{background:#394257;margin:80 130}div{position:absolute;width:140;height:140;background:#F0CD48;border-radius:50%}p{position:relative;width:40;aspect-ratio:1;background:#394257;margin:10}[a]{width:70;top:-40;left:10}[b]{top:-90;left:40}[c]{top:-130;left:80
