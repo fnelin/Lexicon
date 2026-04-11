@@ -1,0 +1,1 @@
+<div a e><div b f><div c e><div d f><style>body{background:#DDFEE6}*{position:absolute}[a],[b]{background:#6D62BA}[c],[d]{background:#A1E6E4}[e]{border-radius:50px 50px 0 0;}[f]{border-radius:0 50px 50px 0;}[a]{width:100;height:180;top:52;left:102}[b]{width:180;height:100;top:80}[c]{width:40;height:120;top:-50;left:30}[d]{width:110;height:40;top:80;left:10
