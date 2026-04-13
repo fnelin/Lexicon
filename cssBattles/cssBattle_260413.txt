@@ -1,0 +1,1 @@
+<div t></div><div t c></div><span><div s></div><div s b><style>body{background:#588A95;display:flex;margin:50 55}div{position:absolute;width:99;height:200;background:#E8AD6D}[c]{margin:0 80}[t]{clip-path:polygon(0% 0%, 100% 50%, 0% 100%)}[s]{width:110;height:110;background:#2F5A76;margin:-20 180}[b]{margin:110 180
