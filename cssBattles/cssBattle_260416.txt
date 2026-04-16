@@ -1,0 +1,1 @@
+<div><style>body{background:#E8AD6D;margin:45 40}div{width:100;height:100;background:#FFF;color:#A84A4B;border-radius:20%;box-shadow:110px 0, 0 110px, 220px 0 #fff, 110px 110px #fff, 220px 110px
