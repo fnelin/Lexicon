@@ -1,0 +1,1 @@
+<p><style>body{background:#66284A;margin:90 40;}p{width:320;height:120;background:linear-gradient(-60deg,#F7BED9 0 83px,#0000 0 133px,#F7BED9 0 204px,#0000 0 254px,#F7BED9 237px)
