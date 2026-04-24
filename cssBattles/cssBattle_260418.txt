@@ -1,0 +1,1 @@
+<div><div b><div c><div d><style>body{background:#E5E5E3}div{position:absolute;width:140;height:50;background:#E75044;top:225;left:130}[b]{top:-100;left:-60;width:60;border-radius:100px 0 0}[c]{top:0;left:170;width:90;border-radius:0 90px 0 0}[d]{width:80;height:200;top:-100;left:-80;border-radius:40px 40px 0 0
