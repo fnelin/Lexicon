@@ -1,0 +1,1 @@
+<div><p><style>body{background:#A34F50;margin:50 100}div{width:120;height:120;background:#111111;border-radius:50%;border:40px solid #F7CB71}p{margin:-40;width:200;height:200;background:repeating-conic-gradient(#fff 0deg 90deg, #0000 90deg 180deg);border-radius:50%
