@@ -1,1 +1,0 @@
-<div><style>body{background:#2FAA8B;margin:95 50}div{width:110;height:110;color:#17405B;background:#17405B;box-shadow:95px -65px,95px 65px,240px -110px,200px -110px,240px 110px,205px 110px,190px 00px

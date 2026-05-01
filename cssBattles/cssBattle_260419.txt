@@ -1,1 +1,0 @@
-<div></div><div b x><p x></p></div><div c y><p z y></p></div><div d><style>*{position:relative;background:#2F5C24}div{top:17;left:92;width:70;height:70;background:#EBCB58}[b],[c]{width:195;height:100}[x]{border-radius:0 50px 50px 0}[y]{border-radius:50px 0 0 50px}[b]{top:-29;left:117;}[c]{top:-75;left:72;}[d]{top:-105;left:222}p{top:30;left:0;width:165;height:40}[z]{left:30
